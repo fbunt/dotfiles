@@ -72,8 +72,6 @@ Plug 'elzr/vim-json'
 
 call plug#end()
 
-"execute pathogen#infect()
-
 
 " ==========
 " -> General
