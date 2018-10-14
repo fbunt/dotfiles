@@ -43,9 +43,11 @@ Plug 'scrooloose/nerdtree'
 " Snippets and Completion
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
+if has('python3')
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+endif
 " tpope
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
