@@ -329,7 +329,7 @@ endfunction
 " ** Python **
 let python_highlight_all = 1
 au FileType python set cindent
-
+au FileType python syn keyword pythonDecorator True None False self
 
 
 
@@ -371,6 +371,8 @@ let g:goyo_width=100
 let g:goyo_margin_top = 2
 let g:goyo_margin_bottom = 2
 nnoremap <silent> <leader>z :Goyo<cr>
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 
 " ** ALE **
