@@ -390,10 +390,12 @@ autocmd! User GoyoLeave Limelight!
 
 " ** ALE **
 " =========
-nmap <silent> <leader>a <Plug>(ale_next_wrap)
 let g:ale_sign_column_always = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_set_highlights = 1
+" Move to next/previous error
+nmap <silent> <C-N> <Plug>(ale_next_wrap)
+nmap <silent> <C-M> <Plug>(ale_previous_wrap)
 
 let g:ale_linters = {
 \   'javascript': ['jshint', 'eslint'],
