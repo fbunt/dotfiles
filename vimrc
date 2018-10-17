@@ -91,6 +91,8 @@ filetype on
 filetype plugin on
 filetype indent on
 
+set mouse=nvi
+
 
 " ===================
 " -> Editor Interface
