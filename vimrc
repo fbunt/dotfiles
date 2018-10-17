@@ -163,20 +163,16 @@ endif
 " =================
 " -> Colors & Fonts
 " =================
+" Enable 256 color palette in Gnome Terminal
+if !has('nvim')
+    if $COLORTERM == 'gnome-terminal'
+        set t_Co=256
+    endif
+endif
+
 syntax enable
 set background=dark
 colorscheme peaksea
-
-" Enable 256 color palette in Gnome Terminal
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
-
-"try
-"    colorscheme desert
-"catch
-"endtry
-
 
 set encoding=utf8
 
