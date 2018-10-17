@@ -82,6 +82,8 @@ set nocompatible
 set swapfile
 set autoread
 set history=100
+" Unix as standard file type
+set ffs=unix,dos,mac
 
 let mapleader = ','
 
@@ -110,14 +112,12 @@ set foldcolumn=1
 
 let $LANG='en'
 set langmenu=en
-
 " Wild command completion
 set wildmenu
 set wildignore=*.o,*~,*.pyc
 set wildignore+=/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
-
+" Better backspace behavior
 set backspace=eol,start,indent
-
 " Allow to move from beginning of line to end of previous line, etc.
 set whichwrap+=<,>,h,l
 
@@ -127,14 +127,11 @@ set whichwrap+=<,>,h,l
 
 " Don't redraw while executing a macro
 set lazyredraw
-
 " Less backslashes in regex patterns
 set magic
-
 " Show matching brackets and blink for 2/10 of second when showing match
 set showmatch
 set matchtime=2
-
 " No sounds or flashes on error
 set noerrorbells
 set novisualbell
@@ -157,7 +154,7 @@ set incsearch
 
 " Use the the_silver_searcher if possible (much faster than Ack)
 if executable('ag')
-  let g:ackprg = 'ag --vimgrep --smart-case'
+    let g:ackprg = 'ag --vimgrep --smart-case'
 endif
 
 
@@ -180,9 +177,6 @@ endif
 
 
 set encoding=utf8
-
-" Unix as standard file type
-set ffs=unix,dos,mac
 
 
 " ========================
@@ -341,10 +335,6 @@ au FileType python syn keyword pythonDecorator True None False self
 
 " ** lightline **
 " ===============
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ }
-
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
