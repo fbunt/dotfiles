@@ -339,6 +339,8 @@ au FileType python syn keyword pythonDecorator True None False self
 " ================
 " => Plugin Config
 " ================
+" TODO: add autocommands so plugin specific settings are only set if plugin is
+"       installed
 
 " ** lightline **
 " ===============
