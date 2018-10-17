@@ -239,7 +239,12 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " ==============
 " Status line always on
 set laststatus=2
+" Set statusline in case no LightLine
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+if get(g:, 'loaded_lightline', 0)
+    " Don't show mode if LightLine is active
+    set noshowmode
+endif
 
 
 " ===================
@@ -339,13 +344,16 @@ let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ ['mode', 'paste'],
-      \             ['fugitive', 'readonly', 'filename', 'modified'] ],
-      \   'right': [ [ 'lineinfo' ], ['percent'] ]
+      \             ['fugitive', 'readonly', 'filename', 'modified', 'cwd'] ],
+      \   'right': [ [ 'lineinfo' ], ['percent'], ['filetype'] ]
       \ },
       \ 'component': {
       \   'readonly': '%{&filetype=="help"?"":&readonly?"🔒":""}',
       \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
+      \ },
+      \ 'component_function': {
+      \   'cwd': 'LightLineCWD',
       \ },
       \ 'component_visible_condition': {
       \   'readonly': '(&filetype!="help"&& &readonly)',
@@ -353,8 +361,21 @@ let g:lightline = {
       \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
       \ },
       \ 'separator': { 'left': ' ', 'right': ' ' },
-      \ 'subseparator': { 'left': ' ', 'right': ' ' }
+      \ 'subseparator': { 'left': ' ', 'right': '|' }
       \ }
+
+function! LightLineCWD()
+    let cwd = getcwd()
+    if cwd == '/'
+        return cwd
+    endif
+    let dirlist = split(cwd, '/')
+    if len(dirlist)
+        return dirlist[-1] . '/'
+    else
+        return './'
+    endif
+endfunction
 
 
 " ** Zen/Goyo **
