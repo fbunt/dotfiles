@@ -366,13 +366,13 @@ let g:lightline = {
       \ }
 
 function! LightLineCWD()
-    let cwd = getcwd()
+    let l:cwd = getcwd()
     if cwd == '/'
         return cwd
     endif
-    let dirlist = split(cwd, '/')
-    if len(dirlist)
-        return dirlist[-1] . '/'
+    let l:dirlist = split(l:cwd, '/')
+    if len(l:dirlist)
+        return l:dirlist[-1] . '/'
     else
         return './'
     endif
