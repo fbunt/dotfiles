@@ -345,7 +345,7 @@ let g:lightline = {
       \ 'active': {
       \   'left': [ ['mode', 'paste'],
       \             ['fugitive', 'readonly', 'filename', 'modified', 'cwd'] ],
-      \   'right': [ [ 'lineinfo' ], ['percent'], ['filetype'] ]
+      \   'right': [ [ 'lineinfo' ], ['percent'], ['filetype', 'fsize'] ]
       \ },
       \ 'component': {
       \   'readonly': '%{&filetype=="help"?"":&readonly?"🔒":""}',
@@ -354,6 +354,7 @@ let g:lightline = {
       \ },
       \ 'component_function': {
       \   'cwd': 'LightLineCWD',
+      \   'fsize': 'LightLineFSize',
       \ },
       \ 'component_visible_condition': {
       \   'readonly': '(&filetype!="help"&& &readonly)',
@@ -375,6 +376,21 @@ function! LightLineCWD()
     else
         return './'
     endif
+endfunction
+
+function! LightLineFSize()
+    let l:nbytes = getfsize(expand(@%))
+    if l:nbytes < 0
+        return '-- B'
+    endif
+
+    let l:suffixes = ['B', 'KB', 'MB', 'GB', 'TB']
+    let l:isuf = 0
+    while l:nbytes >= 1024
+        let l:nbytes = l:nbytes / 1024.0
+        let l:isuf += 1
+    endwhile
+    return printf('%.1f %s', l:nbytes, l:suffixes[l:isuf])
 endfunction
 
 
