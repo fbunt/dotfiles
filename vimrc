@@ -409,6 +409,9 @@ autocmd! User GoyoLeave Limelight!
 let g:ale_sign_column_always = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_set_highlights = 1
+" Rust
+let g:ale_rust_cargo_use_check = 1
+let g:ale_rust_rls_toolchain = 'stable'
 " Move to next/previous error
 nmap <silent> <C-N> <Plug>(ale_next_wrap)
 nmap <silent> <C-M> <Plug>(ale_previous_wrap)
@@ -417,7 +420,7 @@ let g:ale_linters = {
 \   'javascript': ['jshint', 'eslint'],
 \   'python': ['flake8'],
 \   'go': ['go', 'golint', 'errcheck'],
-\   'rust': ['cargo']
+\   'rust': ['cargo', 'rls']
 \}
 
 
