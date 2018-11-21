@@ -69,6 +69,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'hdima/python-syntax'
 Plug 'nvie/vim-flake8'
+Plug 'ambv/black'
 Plug 'rust-lang/rust.vim'
 Plug 'elzr/vim-json'
 
