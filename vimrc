@@ -103,8 +103,12 @@ set nowrap
 " More natural feeling window spliting
 set splitbelow
 set splitright
-" TODO: only turn on when needed and/or make filetype dependent
+" Max line length indicator
 set colorcolumn=80
+" Turn off for text and data files
+au FileType csv,text,tsv,svg,ps,postscr,help :set colorcolumn=
+" Extend
+au FileType html,tex :set colorcolumn=100
 " Leave lines above/below cursor when moving vertically
 set scrolloff=5
 " Show line,col
