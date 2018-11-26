@@ -451,3 +451,8 @@ map <leader>nn :NERDTreeToggle<cr>
 " ** deoplete **
 " ==============
 let g:deoplete#enable_at_startup = 1
+
+
+" ** Black **
+" ===========
+let g:black_linelength = 79
