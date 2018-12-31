@@ -24,6 +24,13 @@
 " =========================
 " === Plugin Management ===
 " =========================
+" Install Plug if not already installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'w0rp/ale'
@@ -44,9 +51,14 @@ Plug 'scrooloose/nerdtree'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 if has('python3')
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
+    if has('nvim')
+        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	else
+		Plug 'Shougo/deoplete.nvim'
+		Plug 'roxma/nvim-yarp'
+		Plug 'roxma/vim-hug-neovim-rpc'
+	endif
+	let g:deoplete#enable_at_startup = 1
 endif
 " tpope
 Plug 'tpope/vim-abolish'
@@ -108,7 +120,7 @@ set colorcolumn=80
 " Turn off for text and data files
 au FileType csv,text,tsv,svg,ps,postscr,help :set colorcolumn=
 " Extend
-au FileType html,tex :set colorcolumn=100
+au FileType html,rust,tex :set colorcolumn=100
 " Leave lines above/below cursor when moving vertically
 set scrolloff=5
 " Show line,col
