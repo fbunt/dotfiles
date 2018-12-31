@@ -45,7 +45,6 @@ Plug 'junegunn/limelight.vim', { 'on': 'Goyo'  }
 Plug 'amix/vim-zenroom2', { 'on': 'Goyo'  }
 Plug 'godlygeek/tabular'
 Plug 'terryma/vim-expand-region'
-Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 " Snippets and Completion
 Plug 'SirVer/ultisnips'
@@ -63,10 +62,13 @@ endif
 " tpope
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+" Git
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim', { 'on': 'GV' }
 " Colors
 Plug 'vim-scripts/mayansmoke'
 Plug 'junegunn/seoul256.vim'
