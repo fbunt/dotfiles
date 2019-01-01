@@ -239,8 +239,6 @@ prepend_to_path "$HOME/bin"
 
 source ~/repos/z/z.sh
 
-# If this is changed by conda and causes slow bash startup, change $HOME to
-# ~ below
 # added by Anaconda3 5.3.1 installer
 # >>> conda init >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -248,8 +246,8 @@ __conda_setup="$(CONDA_REPORT_ERRORS=false '~/anaconda3/bin/conda' shell.bash ho
 if [ $? -eq 0 ]; then
     \eval "$__conda_setup"
 else
-    if [ -f "~/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "~/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/anaconda3/etc/profile.d/conda.sh"
         CONDA_CHANGEPS1=false conda activate base
     else
         \export PATH="~/anaconda3/bin:$PATH"
