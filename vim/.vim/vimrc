@@ -437,9 +437,10 @@ nmap <silent> <C-N> <Plug>(ale_next_wrap)
 nmap <silent> <C-M> <Plug>(ale_previous_wrap)
 
 let g:ale_linters = {
+\   'bash': ['shellcheck'],
+\   'go': ['go', 'golint', 'errcheck'],
 \   'javascript': ['jshint', 'eslint'],
 \   'python': ['flake8'],
-\   'go': ['go', 'golint', 'errcheck'],
 \   'rust': ['cargo', 'rls']
 \}
 
