@@ -109,13 +109,17 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 if [[ $OS == Darwin ]]; then
     alias ls='ls -F'
+    alias la='ls -aF'
+    alias ll='ls -alF'
+    alias llh='ls -alFh'
+    alias l='ls -F'
 else
     alias ls='ls -F --color=auto'
+    alias la='ls -aF --color=auto'
+    alias ll='ls -alF --color=auto'
+    alias llh='ls -alFh --color=auto'
+    alias l='ls -F --color=auto'
 fi
-alias la='ls -aF'
-alias ll='ls -alF'
-alias llh='ls -alFh'
-alias l='ls -F'
 
 alias vi="nvim"
 
