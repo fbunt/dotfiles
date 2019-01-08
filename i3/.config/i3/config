@@ -30,7 +30,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec konsole
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -202,4 +202,8 @@ exec --no-startup-id feh --bg-fill ~/Pictures/wallpaper02.jpg --bg-fill ~/Pictur
 
 # Gaps
 gaps inner 10
-gaps outer 15
+gaps outer 5
+
+
+# compton compositor
+exec_always --no-startup-id compton -b --config ~/.config/compton/compton.conf
