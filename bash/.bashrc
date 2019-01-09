@@ -200,13 +200,12 @@ if [[ ! -d "$HOME/bin" ]]; then
     mkdir -p "$HOME/bin"
 fi
 
-if [ $OS != Darwin -a -z ${DISPLAY:=""} ]; then
+if [[ $OS != Darwin && -z ${DISPLAY:=""} ]]; then
     get_xserver
-    if [[ -z ${XSERVER}  || ${XSERVER} == $(hostname) ||
-       ${XSERVER} == "unix" ]]; then
-          DISPLAY=":0.0"          # Display on local host.
+    if [[ -z ${XSERVER}  || ${XSERVER} == $(hostname) || ${XSERVER} == "unix" ]]; then
+        DISPLAY=":0.0"          # Display on local host.
     else
-       DISPLAY=${XSERVER}:0.0     # Display on remote host.
+        DISPLAY=${XSERVER}:0.0     # Display on remote host.
     fi
 
     export DISPLAY
