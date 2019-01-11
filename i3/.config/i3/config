@@ -152,10 +152,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -197,7 +197,19 @@ for_window [class="Plasmoidviewer"] floating enable, border none
 
 # Pretty The Place Up
 # -------------------
+# Monitor 2 wallpaper first because KDE is mixing up the monitors
 exec --no-startup-id feh --bg-fill ~/Pictures/wallpaper02.jpg --bg-fill ~/Pictures/wallpaper01.jpg
+
+for_window [class="^.*"] border pixel 2
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #c0d8f8   #80c0e0
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #202020
+client.unfocused        #333333 #222222 #888888 #292d2e   #202020
+client.urgent           #2f343a #900000 #ffffff #900000   #60f080
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
 
 
 # Gaps
