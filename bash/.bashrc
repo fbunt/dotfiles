@@ -43,6 +43,7 @@ shopt -s checkwinsize
 export TERM=xterm-256color
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
+export LS_COLORS='di=1;36:ln=1;35:so=1;32:pi=1;33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=34;43'
 
 # # Set a fancy prompt (non-color, unless we know we "want" color).
 case "$TERM" in
@@ -90,6 +91,8 @@ if [[ $OS == Darwin ]]; then
     RESET="\[$(tput sgr0)\]"
     PS1="${PCOLOR}${PROMPT}${RESET}"
 elif [ "$color_prompt" == yes ]; then
+    PCOLOR="\[$(tput setaf 45)\]"
+    RESET="\[$(tput sgr0)\]"
     PS1="${PCOLOR}${PROMPT}${RESET}"
 else
     PS1="${PROMPT}"
