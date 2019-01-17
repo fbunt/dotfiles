@@ -180,7 +180,7 @@ bar {
 
 # Plasma Specific
 # ---------------
-# Kill wallpaper since it covers everything
+# Kill KDE wallpaper since it covers everything after X startup
 exec --no-startup-id wmctrl -c Plasma
 for_window [title="Desktop — Plasma"] kill, floating enable, border none
 
@@ -197,8 +197,7 @@ for_window [class="Plasmoidviewer"] floating enable, border none
 
 # Pretty The Place Up
 # -------------------
-# Monitor 2 wallpaper first because KDE is mixing up the monitors
-exec --no-startup-id feh --bg-fill ~/Pictures/wallpaper02.jpg --bg-fill ~/Pictures/wallpaper01.jpg
+exec --no-startup-id feh --bg-fill ~/Pictures/wallpaper.jpg
 
 for_window [class="^.*"] border pixel 2
 
