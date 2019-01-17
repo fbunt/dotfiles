@@ -258,7 +258,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " Status line always on
 set laststatus=2
 " Set statusline in case no LightLine
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+set statusline=\ %{PasteModeStr()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 if get(g:, 'loaded_lightline', 0)
     " Don't show mode if LightLine is active
     set noshowmode
@@ -305,8 +305,8 @@ map <leader>pp :setlocal paste!<cr>
 " ===================
 " -> Helper Functions
 " ===================
-" Returns true if paste mode is enabled
-function! HasPaste()
+" Returns paste mode indicator string
+function! PasteModeStr()
     if &paste
         return 'PASTE MODE  '
     endif
