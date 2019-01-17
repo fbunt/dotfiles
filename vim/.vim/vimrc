@@ -459,7 +459,7 @@ nnoremap <silent> <leader>d :GitGutterToggle<cr>
 
 " ** NerdTree **
 " ==============
-let NERDTreeShowHidden=0
+let NERDTreeShowHidden = 1
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 map <leader>nn :NERDTreeToggle<cr>
 
