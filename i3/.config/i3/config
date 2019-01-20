@@ -204,7 +204,7 @@ for_window [class="Plasmoidviewer"] floating enable, border none
 
 # Pretty The Place Up
 # -------------------
-exec --no-startup-id feh --bg-fill ~/Pictures/wallpaper.jpg
+exec --no-startup-id feh --bg-fill ~/.wallpaper/wallpaper.jpg
 
 for_window [class="^.*"] border pixel 2
 
