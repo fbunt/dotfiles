@@ -74,6 +74,9 @@ else
     export EDITOR=vim
 fi
 
+# Set terminal variable so i3 doesn't launch xterm instead
+export TERMINAL=konsole
+
 
 # Prompt
 #----------------------------
