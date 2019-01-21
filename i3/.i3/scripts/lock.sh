@@ -20,7 +20,6 @@ params=
 # For each screen resolution, create an image to fit it
 while read line; do
     res=$(echo $line | cut -d" " -f3 | cut -d"+" -f1)
-    height=$(echo $res | cut -d"x" -f2)
 
     # Create image for the screen
     screen_img="$lock_dir/lock_${res}.png"
