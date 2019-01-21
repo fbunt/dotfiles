@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # TODO: figure out why lastcwd not working
-konsole --workdir "$(lastcwd)" &
+konsole --workdir "$(~/bin/lastcwd)" &
