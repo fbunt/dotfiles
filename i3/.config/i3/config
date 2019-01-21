@@ -220,8 +220,8 @@ client.background       #ffffff
 
 
 # Gaps
-gaps inner 10
-gaps outer 7
+gaps inner 5
+gaps outer 5
 
 
 # compton compositor
