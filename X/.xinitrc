@@ -1,7 +1,6 @@
 #!/bin/bash
-
 # Merge colors and settings
-xrdb ~/.Xresources
+xrdb -merge ~/.Xresources
 
 # Force KDE environment when running i3
 export QT_QPA_PLATFORMTHEME="qt5ct"
