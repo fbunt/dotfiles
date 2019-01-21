@@ -217,6 +217,8 @@ if [[ $OS != Darwin && -z ${DISPLAY:=""} ]]; then
     export DISPLAY
 fi
 
+set -o vi
+
 
 # Path
 #----------------------------
