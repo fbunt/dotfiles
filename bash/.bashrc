@@ -217,6 +217,7 @@ if [[ $OS != Darwin && -z ${DISPLAY:=""} ]]; then
     export DISPLAY
 fi
 
+# Set vim bindings
 set -o vi
 
 
