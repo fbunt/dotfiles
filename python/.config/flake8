@@ -4,3 +4,11 @@ ignore =
     # Deals with space around ':' and causes problems with space in indexing
     # expressions.
     E203,
+    # W503 isn't PEP8 compliant.
+    # Causes warnings if there are line breaks before a binary operator.
+    # The following would cause a warning:
+    # return (
+    #     long_name
+    #     + second...
+    #     )
+    W503,
