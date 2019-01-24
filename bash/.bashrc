@@ -177,6 +177,13 @@ function source_if_exists() {
     fi
 }
 
+function make_dir() {
+    local dir="$1"
+    if [[ ! -d "$dir" ]]; then
+        mkdir -p "$dir"
+    fi
+}
+
 function get_xserver ()
 {
     case $TERM in
@@ -199,12 +206,15 @@ function get_xserver ()
 #----------------------------
 # User system setup
 
-if [[ ! -d "$HOME/.local/bin" ]]; then
-    mkdir -p "$HOME/.local/bin"
-fi
-if [[ ! -d "$HOME/bin" ]]; then
-    mkdir -p "$HOME/bin"
-fi
+make_dir "$HOME/.local/bin"
+make_dir "$HOME/bin"
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+make_dir "$XDG_CONFIG_HOME"
+make_dir "$XDG_CACHE_HOME"
+make_dir "$XDG_DATA_HOME"
 
 if [[ $OS != Darwin && -z ${DISPLAY:=""} ]]; then
     get_xserver
