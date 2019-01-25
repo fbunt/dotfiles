@@ -20,7 +20,6 @@ screen_imgs=
 # For each screen resolution, create an image to fit it
 while read line; do
     res=$(echo $line | awk '{print $1}')
-    echo "Res: $res"
 
     # Create image for the screen
     screen_img="$lock_dir/lock_${res}.png"
