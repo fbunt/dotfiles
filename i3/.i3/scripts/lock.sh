@@ -16,23 +16,25 @@ lock_dir="$HOME/.i3/lock"
 full_img="$lock_dir/lock_full.png"
 img_out="$lock_dir/lock"
 # Input image names for convert
-params=
+screen_imgs=
 # For each screen resolution, create an image to fit it
 while read line; do
-    res=$(echo $line | cut -d" " -f3 | cut -d"+" -f1)
+    res=$(echo $line | awk '{print $1}')
+    echo "Res: $res"
 
     # Create image for the screen
     screen_img="$lock_dir/lock_${res}.png"
     if [ ! -f "$screen_img" ]; then
-        convert "$full_img" -resize $res "$screen_img"
+        # Resize and crop the image to fit the resolution
+        convert "$full_img" -resize "${res}^" -gravity center -extent "$res" "$screen_img"
     fi
-    params="$params ${screen_img}"
+    screen_imgs="$screen_imgs ${screen_img}"
     img_out="${img_out}_${res}"
-done <<< "$(xrandr | grep " connected")"
+done <<< "$(xrandr | grep \*)"
 # Final image name
 img_out="${img_out}.png"
 # Create the final image if it doesn't already exist
 if [ ! -f "$img_out" ]; then
-    convert $params +append $img_out
+    convert $screen_imgs +append $img_out
 fi
 /usr/bin/i3lock -i $img_out -t
