@@ -25,8 +25,10 @@ while read line; do
     # Create image for the screen
     screen_img="$lock_dir/lock_${res}.png"
     if [ ! -f "$screen_img" ]; then
-        # Resize and crop the image to fit the resolution
-        convert "$full_img" -resize "${res}^" -gravity center -extent "$res" "$screen_img"
+        # Resize and crop the image to fit the resolution and add prompt text
+        convert "$full_img" -resize "${res}^" -gravity center -extent "$res" \
+            -pointsize 50 -fill white -gravity center -annotate +0+200 \
+            "What's the password?" "$screen_img"
     fi
     screen_imgs="$screen_imgs ${screen_img}"
     img_out="${img_out}_${res}"
