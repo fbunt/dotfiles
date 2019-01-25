@@ -228,8 +228,8 @@ gaps inner 5
 gaps outer 5
 
 
-# compton compositor
-exec_always --no-startup-id compton -b --config ~/.config/compton/compton.conf
+# Launch compositor if one is found
+exec --no-startup-id ~/.i3/scripts/launch_compositor.sh
 
 
 # polybar status bar
