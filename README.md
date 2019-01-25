@@ -6,9 +6,10 @@ Here is a nice [writeup](http://brandon.invergo.net/news/2012-05-26-using-gnu-st
 
 ## Dependencies
 * [i3-gaps](https://github.com/Airblader/i3)
-    * [compton](https://github.com/tryone144/compton)
-    * [feh](https://feh.finalrewind.org/)
-    * [i3lock](https://github.com/i3/i3lock)
+    * [compton](https://github.com/tryone144/compton) - Compositor
+    * [feh](https://feh.finalrewind.org/) - Set background
+    * [i3lock](https://github.com/i3/i3lock) - Lock screen
+    * [ImageMagick](https://www.imagemagick.org/) - Create image for lock screen
     * [lastcwd](https://github.com/wknapik/lastcwd)
     * [polybar](https://github.com/jaagr/polybar)
     * [rofi](https://github.com/DaveDavenport/rofi)
