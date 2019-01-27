@@ -86,7 +86,7 @@ Color=0,249,0
 Color=0,249,0
 
 [ForegroundIntense]
-Color=0,249,0
+Color=254,255,255
 
 [General]
 Blur=true
