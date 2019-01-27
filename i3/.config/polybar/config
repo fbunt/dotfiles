@@ -58,7 +58,7 @@ modules-left = i3
 modules-center =
 modules-right = xwindow pulseaudio filesystem memory cpu network date powermenu
 
-; separator = "|"
+separator = "|"
 
 tray-position = right
 tray-padding = 2
@@ -84,7 +84,7 @@ interval = 25
 mount-0 = /
 mount-1 = /home
 
-label-mounted = [%mountpoint%] u: %used% f: %free%
+label-mounted = [ %mountpoint% ] f: %free%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 

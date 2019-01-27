@@ -45,6 +45,7 @@
     border-color: #666666;
     background-color: @dark-light;
 	color: @foreground;
+    border-radius: 5px;
 }
 #inputbar,prompt,entry, case-indicator {
     background-color: @dark-light;
