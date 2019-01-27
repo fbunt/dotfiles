@@ -1,11 +1,6 @@
-! UXTerm Settings
-UXTerm*allowBoldFonts: false
-UXTerm*termName: xterm-256color
-XTerm.termName: xterm-256color
-
-
+# General Colors
 *.foreground:  #00f900
-*.background:  #202020
+*.background:  #333333
 *.cursorColor: #bbbbbb
 !
 ! Black
