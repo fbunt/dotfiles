@@ -1,53 +1,44 @@
-! Rofi Theming
-rofi.color-enabled: true
-rofi.color-window: #273238, #273238, #1e2529
-rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
-rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
-rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
-
 ! UXTerm Settings
-
 UXTerm*allowBoldFonts: false
 UXTerm*termName: xterm-256color
 XTerm.termName: xterm-256color
 
 
-*.foreground:  #bdbaae
-! *.background:  #222222
+*.foreground:  #00f900
 *.background:  #202020
 *.cursorColor: #bbbbbb
 !
 ! Black
-*.color0:      #15171c
-*.color8:      #555555
+*.color0:      #262626
+*.color8:      #2b2b2b
 !
 ! Red
-*.color1:      #ec5f67
-*.color9:      #ff6973
+*.color1:      #d33538
+*.color9:      #ff4144
 !
 ! Green
-*.color2:      #81a764
-*.color10:     #93d493
+*.color2:      #00b000
+*.color10:     #54ff54
 !
 ! Yellow
-*.color3:      #fec254
-*.color11:     #ffd256
+*.color3:      #a9a600
+*.color11:     #ffff54
 !
 ! Blue
-*.color4:      #5486c0
-*.color12:     #4d84d1
+*.color4:      #1b66c8
+*.color12:     #237bff
 !
 ! Magenta
-*.color5:      #bf83c1
-*.color13:     #ff55ff
+*.color5:      #d028d0
+*.color13:     #ff31fc
 !
 ! Cyan
-*.color6:      #57c2c1
-*.color14:     #83e9e4
+*.color6:      #00b3bf
+*.color14:     #54ffff
 !
 ! White
-*.color7:      #efece7
-*.color15:     #ffffff
+*.color7:      #cacaca
+*.color15:     #feffff
 !
 ! Bold, Italic, Underline
 *.colorBD:     #ffffff
