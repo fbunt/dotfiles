@@ -2,6 +2,10 @@
 
 # Much of this is taken from the default debian .bashrc
 
+# Set these here so that non-interactive sessions still see them
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
 
 # If not running interactively, don't do anything
 case $- in
@@ -209,9 +213,6 @@ function get_xserver ()
 make_dir "$HOME/.local/bin"
 make_dir "$HOME/bin"
 
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
 make_dir "$XDG_CONFIG_HOME"
 make_dir "$XDG_CACHE_HOME"
 make_dir "$XDG_DATA_HOME"
