@@ -8,22 +8,22 @@ Color=51,51,51
 Color=51,51,51
 
 [Color0]
-Color=0,0,0
+Color=38,38,38
 
 [Color0Faint]
-Color=24,24,24
+Color=22,22,22
 
 [Color0Intense]
-Color=121,121,121
+Color=43,43,43
 
 [Color1]
-Color=171,21,0
+Color=211,53,56
 
 [Color1Faint]
-Color=101,25,25
+Color=108,27,28
 
 [Color1Intense]
-Color=236,33,0
+Color=255,65,68
 
 [Color2]
 Color=0,176,0
@@ -44,22 +44,22 @@ Color=101,74,0
 Color=255,255,84
 
 [Color4]
-Color=2,35,191
+Color=27,102,200
 
 [Color4Faint]
-Color=0,0,101
+Color=16,60,126
 
 [Color4Intense]
-Color=4,50,255
+Color=35,123,255
 
 [Color5]
-Color=193,45,191
+Color=208,40,208
 
 [Color5Faint]
-Color=95,5,95
+Color=107,20,107
 
 [Color5Intense]
-Color=236,58,234
+Color=255,49,252
 
 [Color6]
 Color=0,179,191
