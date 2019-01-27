@@ -53,7 +53,7 @@ Plug 'honza/vim-snippets'
 if has('python3')
     if has('nvim')
         Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	endif
+    endif
 endif
 " tpope
 Plug 'tpope/vim-abolish'
