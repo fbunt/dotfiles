@@ -41,11 +41,15 @@ dnf install -y \
     rofi \
     stow \
     vim \
+    xclip \
     zsh \
     @development-tools \
     alsa-lib-devel \
     cairo-devel \
+    fontconfig-devel \
+    freetype-devel \
     jsoncpp-devel \
+    libX11-devel \
     libXcomposite-devel \
     libXdamage-devel \
     libXfixes-devel \
@@ -58,7 +62,6 @@ dnf install -y \
     libmpdclient \
     libmpdclient-devel \
     libnl3-devel \
-    libX11-devel \
     libxcb-devel \
     libxkbcommon-devel \
     libxkbcommon-x11-devel \
