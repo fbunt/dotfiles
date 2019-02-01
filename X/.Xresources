@@ -1,4 +1,4 @@
-# General Colors
+! General Colors
 *.foreground:  #00f900
 *.background:  #333333
 *.cursorColor: #bbbbbb
