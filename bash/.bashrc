@@ -256,6 +256,9 @@ fi
 # Setting PATH for my bin
 prepend_to_path "$HOME/bin"
 
+# Add snaps
+append_to_path "/snap/bin"
+
 
 # ETC
 #----------------------------
