@@ -66,6 +66,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 " Colors
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'fbunt/peaksea'
 Plug 'morhetz/gruvbox'
 Plug 'vim-scripts/mayansmoke'
