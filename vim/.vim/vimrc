@@ -459,6 +459,9 @@ let g:indentLine_concealcursor=""
 " ===============
 let g:gitgutter_enabled=1
 nnoremap <silent> <leader>d :GitGutterToggle<cr>
+highlight GitGutterAdd    guifg=#009900 guibg=#202020 ctermfg=2 ctermbg=NONE
+highlight GitGutterChange guifg=#bbbb00 guibg=#202020 ctermfg=3 ctermbg=NONE
+highlight GitGutterDelete guifg=#ff2222 guibg=#202020 ctermfg=1 ctermbg=NONE
 
 
 " ** NerdTree **
