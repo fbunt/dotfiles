@@ -225,8 +225,8 @@ client.background       #ffffff
 
 
 # Gaps
-gaps inner 5
-gaps outer 5
+gaps inner 7
+gaps outer 3
 
 
 # Launch compositor if one is found
