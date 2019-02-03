@@ -76,7 +76,7 @@ Plug 'w0rp/ale'
 Plug 'nvie/vim-flake8'
 " Language Plugins
 "" Python
-Plug 'hdima/python-syntax'
+Plug 'vim-python/python-syntax'
 Plug 'ambv/black'
 "" Web
 Plug 'mattn/emmet-vim'
