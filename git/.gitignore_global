@@ -1,6 +1,7 @@
 ehthumbs.db
 Thumbs.db
 *.pyc
+*.pyo
 *.autosave
 *.swp
 .~lock.*
