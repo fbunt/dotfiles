@@ -82,6 +82,10 @@ dnf install -y \
     yajl-devel
 
 
+echo "Installing rust"
+curl https://sh.rustup.rs -sSf | sh
+
+
 # git repos needed
 echo "Cloning git repos"
 mkdir -p "$HOME/repos"
