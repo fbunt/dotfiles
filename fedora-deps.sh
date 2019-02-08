@@ -39,6 +39,7 @@ dnf install -y \
     numlockx \
     ripgrep \
     rofi \
+    snapd \
     stow \
     vim \
     xclip \
