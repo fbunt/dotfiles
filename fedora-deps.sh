@@ -33,8 +33,10 @@ dnf install -y \
     i3status \
     java-11-openjdk \
     kdf \
+    lm_sensors \
     make \
     ncdu \
+    nco \
     neovim \
     numlockx \
     ripgrep \
@@ -42,6 +44,7 @@ dnf install -y \
     snapd \
     stow \
     vim \
+    vlc \
     xclip \
     zsh \
     @development-tools \
