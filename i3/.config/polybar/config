@@ -65,7 +65,7 @@ tray-padding = 2
 tray-background = ${colors.background-alt}
 
 ;wm-restack = bspwm
-;wm-restack = i3
+wm-restack = i3
 
 
 cursor-click = pointer
@@ -208,7 +208,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 [module/network]
 type = internal/network
 ; Check /sys/class/net/*/operstate and see which is up
-interface = enp6s0
+interface = enp37s0
 interval = 3.0
 
 format-connected-underline = #55aa55
