@@ -92,6 +92,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'aliou/bats.vim'
 Plug 'chrisbra/csv.vim'
 Plug 'lervag/vimtex'
+Plug 'rhysd/vim-clang-format'
 
 call plug#end()
 
