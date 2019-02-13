@@ -307,11 +307,11 @@ c.TerminalInteractiveShell.editing_mode = 'vi'
 #c.TerminalInteractiveShell.handle_return = None
 
 ## Highlight matching brackets.
-#c.TerminalInteractiveShell.highlight_matching_brackets = True
+c.TerminalInteractiveShell.highlight_matching_brackets = True
 
 ## The name or class of a Pygments style to use for syntax highlighting. To see
 #  available styles, run `pygmentize -L styles`.
-#c.TerminalInteractiveShell.highlighting_style = traitlets.Undefined
+c.TerminalInteractiveShell.highlighting_style = 'monokai'
 
 ## Override highlighting format for specific tokens
 #c.TerminalInteractiveShell.highlighting_style_overrides = {}
@@ -321,7 +321,7 @@ c.TerminalInteractiveShell.editing_mode = 'vi'
 #c.TerminalInteractiveShell.mouse_support = False
 
 ## Display the current vi mode (when using vi editing mode).
-#c.TerminalInteractiveShell.prompt_includes_vi_mode = True
+c.TerminalInteractiveShell.prompt_includes_vi_mode = True
 
 ## Class used to generate Prompt token for prompt_toolkit
 #c.TerminalInteractiveShell.prompts_class = 'IPython.terminal.prompts.Prompts'
