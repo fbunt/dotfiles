@@ -45,3 +45,11 @@ fc-cache -fv
 echo "Fetching anaconda installer"
 cd $HOME/Downloads
 wget https://repo.anaconda.com/archive/Anaconda3-2018.12-Linux-x86_64.sh
+
+
+echo "Installing gotop"
+cd $HOME
+mkdir -p $HOME/bin
+git clone --depth 1 https://github.com/cjbassi/gotop /tmp/gotop
+/tmp/gotop/scripts/download.sh
+mv ./gotop $HOME/bin
