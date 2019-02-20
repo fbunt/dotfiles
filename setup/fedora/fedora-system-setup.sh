@@ -31,7 +31,6 @@ dnf install -y \
     feh \
     gcc \
     git \
-    i3-ipc \
     i3lock \
     i3status \
     java-11-openjdk \
