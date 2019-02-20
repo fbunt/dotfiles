@@ -9,12 +9,15 @@ dnf install -y \
 echo "Updating index"
 dnf check-update -y
 
-echo "Installing programs and dependencies"
-# Programs and libs
+# Nvidia drivers
 dnf install -y \
     xorg-x11-drv-nvidia \
     akmod-nvidia \
-    xorg-x11-drv-nvidia-cuda \
+    xorg-x11-drv-nvidia-cuda
+
+echo "Installing programs and dependencies"
+# Programs and libs
+dnf install -y \
     ImageMagick \
     ShellCheck \
     arandr \
