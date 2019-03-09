@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
 
-# Default to konsole
-term=konsole
-flag="--workdir"
+term=
+flag=
+# Set defaults
+for term in konsole gnome-terminal; do
+    term="$term"
+done
+case "$term" in
+    konsole )
+        flag="--workdir" ;;
+    gnome-terminal )
+        flag="--working-directory" ;;
+esac
 args=
 cwd=
 # Use alacritty if it is present
