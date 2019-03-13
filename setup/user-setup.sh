@@ -3,7 +3,6 @@
 echo "Installing rust"
 curl https://sh.rustup.rs -sSf | sh
 
-cargo install fd-find
 
 # git repos needed
 echo "Cloning git repos"
@@ -24,8 +23,13 @@ for r in "${repos[@]}"; do
     git clone "$r"
 done
 mv i3 i3-gaps
-wget https://github.com/jaagr/polybar/releases/download/3.3.0/polybar-3.3.0.tar
-tar -xvf polybar-*.tar
+
+poly_ver=3.3.0
+wget https://github.com/jaagr/polybar/releases/download/${poly_ver}/polybar-${poly_ver}.tar
+tar -xvf polybar-${poly_ver}.tar
+
+echo "Installing i3blocks scripts"
+git clone https://github.com/vivien/i3blocks-contrib "$XDG_CONFIG_HOME/i3blocks"
 
 
 # Install fonts
@@ -47,13 +51,13 @@ fc-cache -fv
 
 
 echo "Fetching anaconda installer"
-cd $HOME/Downloads
+cd "$HOME/Downloads"
 wget https://repo.anaconda.com/archive/Anaconda3-2018.12-Linux-x86_64.sh
 
 
 echo "Installing gotop"
-cd $HOME
-mkdir -p $HOME/bin
+cd "$HOME"
+mkdir -p "$HOME/bin"
 git clone --depth 1 https://github.com/cjbassi/gotop /tmp/gotop
 /tmp/gotop/scripts/download.sh
-mv ./gotop $HOME/bin
+mv ./gotop "$HOME/bin"

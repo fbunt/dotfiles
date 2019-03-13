@@ -31,14 +31,17 @@ apt install -y \
     nfs-common \
     numlockx \
     openjdk-11-jdk \
+    playerctl \
     pkg-config \
     ripgrep \
     rofi \
     shellcheck \
     snapd \
     stow \
+    sysstat \
     vim \
     vlc \
+    x11-utils \
     xclip \
     zsh \
     build-essential \

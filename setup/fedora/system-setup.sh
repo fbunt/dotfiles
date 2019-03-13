@@ -45,6 +45,7 @@ dnf install -y \
     rofi \
     snapd \
     stow \
+    sysstat \
     vim \
     vlc \
     xclip \
@@ -86,3 +87,7 @@ dnf install -y \
     xcb-util-wm-devel \
     xcb-util-xrm-devel \
     yajl-devel
+
+player_ver=2.0.1
+wget -P /tmp/ https://github.com/acrisci/playerctl/releases/download/v${player_ver}/playerctl-${player_ver}_x86_64.rpm
+dnf install -y /tmp/playerctl-${player_ver}_x86_64.rpm
