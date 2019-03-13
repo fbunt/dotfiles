@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Open an new terminal in the last current working directory, if possible
+
 term=
 flag=
 # Set defaults
