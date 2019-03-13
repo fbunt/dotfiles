@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Exec=sh -c "$XDG_CONFIG_HOME/autostart/xinit.sh"
+Name=X Init Script
+GenericName=X Init Script
+Comment=Runs the X init script because Ubuntu is dumb
+Encoding=UTF-8
+Terminal=true
+Type=Application
+Catagories=Script;X;
