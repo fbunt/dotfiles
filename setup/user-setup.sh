@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+git config --global core.excludesfile ~/.gitignore_global
+
 echo "Installing rust"
 curl https://sh.rustup.rs -sSf | sh
 
