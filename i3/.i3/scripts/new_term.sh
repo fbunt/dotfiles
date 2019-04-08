@@ -17,10 +17,10 @@ esac
 args=
 cwd=
 # Use alacritty if it is present
-# if [ -x "$(command -v alacritty)" ]; then
-#     term=alacritty
-#     flag="--working-directory"
-# fi
+if [ -x "$(command -v alacritty)" ]; then
+    term=alacritty
+    flag="--working-directory"
+fi
 if [ -x "$(command -v lastcwd)" ]; then
     cwd="$(lastcwd)"
     if [ -n "$cwd" ]; then
