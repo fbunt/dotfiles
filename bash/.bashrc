@@ -263,7 +263,9 @@ append_to_path "/snap/bin"
 # ETC
 #----------------------------
 
-source ~/repos/z/z.sh
+if [[ -f "$HOME/repos/z/z.sh" ]]; then
+    source "$HOME/repos/z/z.sh"
+fi
 
 # added by Anaconda3 5.3.1 installer
 # >>> conda init >>>
