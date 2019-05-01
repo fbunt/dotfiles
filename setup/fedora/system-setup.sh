@@ -41,6 +41,8 @@ dnf install -y \
     nco \
     neovim \
     numlockx \
+    perl-Env \
+    perl-Time-HiRes \
     ripgrep \
     rofi \
     snapd \
