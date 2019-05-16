@@ -19,7 +19,12 @@ apt install -y \
     dmenu \
     feh \
     git \
+    gnome-flashback \
+    gnome-flashback-common
     gparted \
+    i3 \
+    i3-wm \
+    i3blocks \
     i3lock \
     i3status \
     imagemagick \
@@ -31,13 +36,14 @@ apt install -y \
     nfs-common \
     numlockx \
     openjdk-11-jdk \
-    playerctl \
     pkg-config \
+    playerctl \
     ripgrep \
     rofi \
     shellcheck \
     snapd \
     stow \
+    suckless-tools \
     sysstat \
     vim \
     vlc \
