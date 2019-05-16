@@ -38,6 +38,13 @@ font pango:monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+
+# i3-msg Commands
+# ---------------
+# Create stacked container from two neighboring windows
+bindsym $mod+Shift+g exec --no-startup-id "i3-msg 'split vertical, focus right, move left, layout stacking'"
+
+
 # start a terminal
 bindsym $mod+Return exec --no-startup-id ~/.i3/scripts/new_term.sh
 
