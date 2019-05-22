@@ -297,6 +297,9 @@ endif
 " Auto complete tags
 inoremap <lt>// </<C-x><C-o><Esc>==gi
 
+" Run black on buffer
+map <leader>bb :Black<cr>
+
 
 " -> Spell Checking
 " =================
