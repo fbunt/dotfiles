@@ -48,8 +48,6 @@ Plug 'junegunn/limelight.vim', { 'on': 'Goyo'  }
 Plug 'amix/vim-zenroom2', { 'on': 'Goyo'  }
 " Snippets and Completion
 Plug 'ervandew/supertab'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 if has('python3')
     if has('nvim')
         Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
