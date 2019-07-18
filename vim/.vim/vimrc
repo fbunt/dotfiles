@@ -125,8 +125,6 @@ set nowrap
 " More natural feeling window spliting
 set splitbelow
 set splitright
-" Max line length indicator
-set colorcolumn=80
 " Turn off for text and data files
 au FileType csv,text,tsv,svg,ps,postscr,help :set colorcolumn=
 " Extend
@@ -360,6 +358,9 @@ let python_highlight_all = 1
 au FileType python set cindent
 au FileType python syn keyword pythonDecorator True None False self
 
+" Set line length indicator
+au FileType c,cpp,css,java,javascript,python,rust,sh,vim,zsh set colorcolumn=80
+au FileType html set colorcolumn=120
 
 
 " ================
