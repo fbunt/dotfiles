@@ -1,0 +1,23 @@
+---
+Language:        Cpp
+BasedOnStyle:  Google
+AccessModifierOffset: -4
+AlignAfterOpenBracket: DontAlign
+AlignTrailingComments: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AllowShortLoopsOnASingleLine: true
+BinPackArguments: false
+BinPackParameters: false
+BreakBeforeBinaryOperators: NonAssignment
+BreakBeforeBraces: Linux
+BreakConstructorInitializers: AfterColon
+BreakInheritanceList: AfterColon
+ContinuationIndentWidth: 8
+IndentCaseLabels: false
+IndentWidth: 4
+SpaceAfterTemplateKeyword: false
+SpacesInContainerLiterals: false
+...
