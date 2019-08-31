@@ -74,6 +74,11 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'w0rp/ale'
 Plug 'nvie/vim-flake8'
 " Language Plugins
+"" C/C++
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 "" Python
 Plug 'vim-python/python-syntax'
 Plug 'ambv/black'
@@ -487,3 +492,11 @@ let g:deoplete#enable_at_startup = 1
 " ===========
 let g:black_linelength = 79
 let g:black_virtualenv="~/.vim/vim_black"
+
+
+" ** LanguageClient **
+" ====================
+let g:LanguageClient_serverCommands = {
+  \ 'cpp': ['clangd'],
+  \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+  \ }
