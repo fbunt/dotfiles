@@ -298,8 +298,10 @@ endif
 " Auto complete tags
 inoremap <lt>// </<C-x><C-o><Esc>==gi
 
-" Run black on buffer
-map <leader>bb :Black<cr>
+" Formatter mapping for filetypes
+au FileType python map <leader>bb :Black<cr>
+au FileType c,cpp map <leader>bb :ClangFormat<cr>
+au FileType rust map <leader>bb :RustFmt<cr>
 
 
 " -> Spell Checking
