@@ -132,8 +132,6 @@ set splitbelow
 set splitright
 " Turn off for text and data files
 au FileType csv,text,tsv,svg,ps,postscr,help :set colorcolumn=
-" Extend
-au FileType html,rust,tex :set colorcolumn=100
 " Leave lines above/below cursor when moving vertically
 set scrolloff=5
 " Show line,col
