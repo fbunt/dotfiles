@@ -33,19 +33,17 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'jiangmiao/auto-pairs'
 Plug 'Yggdroot/indentLine'
+Plug 'godlygeek/tabular'
 Plug 'itchyny/lightline.vim'
-Plug 'maximbaz/lightline-ale'
-Plug 'godlygeek/tabular'
-Plug 'terryma/vim-expand-region'
-Plug 'scrooloose/nerdtree'
-Plug 'godlygeek/tabular'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'maximbaz/lightline-ale'
+Plug 'scrooloose/nerdtree'
+Plug 'terryma/vim-expand-region'
 " Relax mode
+Plug 'amix/vim-zenroom2', { 'on': 'Goyo'  }
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Goyo'  }
-Plug 'amix/vim-zenroom2', { 'on': 'Goyo'  }
 " Snippets and Completion
 Plug 'ervandew/supertab'
 if has('python3')
@@ -61,18 +59,18 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 " Git
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
+Plug 'tpope/vim-fugitive'
 " Colors
+Plug 'altercation/vim-colors-solarized'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'fbunt/peaksea'
+Plug 'junegunn/seoul256.vim'
 Plug 'morhetz/gruvbox'
 Plug 'vim-scripts/mayansmoke'
-Plug 'junegunn/seoul256.vim'
-Plug 'altercation/vim-colors-solarized'
 " Linting
-Plug 'w0rp/ale'
 Plug 'nvie/vim-flake8'
+Plug 'w0rp/ale'
 " Language Plugins
 "" C/C++
 Plug 'autozimu/LanguageClient-neovim', {
@@ -80,15 +78,15 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 "" Python
-Plug 'vim-python/python-syntax'
 Plug 'ambv/black'
+Plug 'vim-python/python-syntax'
 "" Web
-Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
 Plug 'elzr/vim-json'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'leafgarland/typescript-vim'
+Plug 'mattn/emmet-vim'
+Plug 'pangloss/vim-javascript'
 "" Rust
 Plug 'rust-lang/rust.vim'
 "" Etc
