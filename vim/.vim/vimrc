@@ -49,6 +49,8 @@ Plug 'ervandew/supertab'
 if has('python3')
     if has('nvim')
         Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+        " requires jedi python package
+        Plug 'deoplete-plugins/deoplete-jedi'
     endif
 endif
 " tpope
@@ -368,13 +370,6 @@ let g:lightline = {
       \ },
       \ 'separator': { 'left': ' ', 'right': ' ' },
       \ 'subseparator': { 'left': ' ', 'right': '|' },
-      \ 'tab': {
-      \   'active': [ 'tabnum', 'filenameshortened', 'modified' ],
-      \   'inactive': [ 'tabnum', 'filenameshortened', 'modified' ] 
-      \ },
-      \ 'tab_component_function': {
-      \   'filenameshortened': 'LightLineFnamePathShorten'
-      \ },
       \ }
 
 function! LightLineCWD()
@@ -403,16 +398,6 @@ function! LightLineFSize()
         let l:isuf += 1
     endwhile
     return printf('%.1f %s', l:nbytes, l:suffixes[l:isuf])
-endfunction
-
-function! LightLineFnamePathShorten(n)
-    let buflist = tabpagebuflist(a:n)
-    let winnr = tabpagewinnr(a:n)
-    let file = pathshorten(bufname(buflist[winnr - 1]))
-    if empty(file)
-        file = '[No Name]'
-    endif
-    return file
 endfunction
 
 
@@ -472,6 +457,7 @@ map <leader>nn :NERDTreeToggle<cr>
 " ** deoplete **
 " ==============
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#show_docstring = 1
 
 
 " ** Black **
@@ -486,3 +472,9 @@ let g:LanguageClient_serverCommands = {
   \ 'cpp': ['clangd'],
   \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
   \ }
+
+
+" ** supertab **
+" ==============
+let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabClosePreviewOnPopupClose = 1
