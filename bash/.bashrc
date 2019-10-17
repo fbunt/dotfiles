@@ -141,6 +141,9 @@ if [ "$OS" == "Darwin" ]; then
     alias op="open"
 fi
 
+alias py="python"
+alias ipy="ipython"
+
 
 # Functions
 #----------------------------
