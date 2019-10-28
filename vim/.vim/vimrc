@@ -40,6 +40,8 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'maximbaz/lightline-ale'
 Plug 'scrooloose/nerdtree'
 Plug 'terryma/vim-expand-region'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'majutsushi/tagbar'
 " Relax mode
 Plug 'amix/vim-zenroom2', { 'on': 'Goyo'  }
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
@@ -478,3 +480,42 @@ let g:LanguageClient_serverCommands = {
 " ==============
 let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:SuperTabClosePreviewOnPopupClose = 1
+
+
+" ** gutentags **
+" ===============
+let g:gutentags_cache_dir = "~/.cache/ctags"
+let g:gutentags_ctags_exclude = [
+    \ '.git', '.svg', '.hg',
+    \ 'bin',
+    \ 'build',
+    \ 'cache',
+    \ 'dist',
+    \ 'docs',
+    \ 'node_modules',
+    \ 'tags',
+    \ '.md',
+    \ '.lock',
+    \ '.json',
+    \ '.zip',
+    \ '.pyc',
+    \ '.class',
+    \ '.tmp',
+    \ '.cache',
+    \ '.pdb',
+    \ 'cscope.',
+    \ '.css',
+    \ '.exe', '.dll',
+    \ '.mp3', '.ogg', '.flac',
+    \ '.swp', '.swo',
+    \ '.bmp', '.gif', '.ico', '.jpg', '.png',
+    \ '.rar', '.zip', '.tar', '.tar.gz', '.tar.xz', '.tar.bz2',
+    \ '.pdf', '.doc', '.docx', '.ppt', '.pptx',
+    \ '.txt', '.csv',
+    \ '.nc', '.nc4', '.h5', '.grib', '.grb', '.dat', '.db',
+    \ ]
+
+
+" ** tagbar **
+" ============
+map <leader>tb :TagbarToggle<cr>
