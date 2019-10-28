@@ -82,6 +82,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+Plug 'rhysd/vim-clang-format'
 "" Python
 Plug 'ambv/black'
 Plug 'vim-python/python-syntax'
@@ -95,10 +96,8 @@ Plug 'pangloss/vim-javascript'
 "" Rust
 Plug 'rust-lang/rust.vim'
 "" Etc
-Plug 'aliou/bats.vim'
 Plug 'chrisbra/csv.vim'
 Plug 'lervag/vimtex'
-Plug 'rhysd/vim-clang-format'
 
 call plug#end()
 
