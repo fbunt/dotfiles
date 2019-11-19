@@ -12,16 +12,21 @@ apt install -y \
     asciidoc \
     autoconf \
     automake \
+    build-essential \
     clang \
+    clang-tools-8 \
     cmake \
     cmake-data \
     cowsay \
     dmenu \
     feh \
+    ffmpeg \
     git \
     gnome-flashback \
-    gnome-flashback-common
+    gnome-flashback-common \
     gparted \
+    gzip \
+    htop \
     i3 \
     i3-wm \
     i3blocks \
@@ -35,7 +40,9 @@ apt install -y \
     neovim \
     nfs-common \
     numlockx \
+    openssh-server \
     openjdk-11-jdk \
+    parallel \
     pkg-config \
     playerctl \
     ripgrep \
@@ -45,12 +52,13 @@ apt install -y \
     stow \
     suckless-tools \
     sysstat \
+    units \
+    universal-ctags \
     vim \
     vlc \
     x11-utils \
     xclip \
     zsh \
-    build-essential \
     libasound2-dev \
     libcairo2-dev \
     libcogl-pango-dev \
