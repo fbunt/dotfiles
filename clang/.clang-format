@@ -17,6 +17,9 @@ BreakInheritanceList: AfterColon
 ContinuationIndentWidth: 8
 IndentCaseLabels: false
 IndentWidth: 4
+PenaltyBreakTemplateDeclaration: 0
+PenaltyReturnTypeOnItsOwnLine: 100000
 SpaceAfterTemplateKeyword: false
 SpacesInContainerLiterals: false
+
 ...
