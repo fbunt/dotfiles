@@ -18,6 +18,7 @@ apt install -y \
     cmake \
     cmake-data \
     cowsay \
+    curl \
     dmenu \
     feh \
     ffmpeg \
