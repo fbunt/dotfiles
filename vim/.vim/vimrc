@@ -54,6 +54,7 @@ if has('python3')
         Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
         " requires jedi python package
         Plug 'deoplete-plugins/deoplete-jedi'
+        Plug 'deoplete-plugins/deoplete-clang'
     endif
 endif
 " tpope
@@ -470,6 +471,7 @@ let g:black_virtualenv="~/.vim/vim_black"
 
 " ** LanguageClient **
 " ====================
+let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
   \ 'cpp': ['clangd'],
   \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
