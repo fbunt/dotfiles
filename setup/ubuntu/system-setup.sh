@@ -14,7 +14,11 @@ apt install -y \
     automake \
     build-essential \
     clang \
+    clang-format \
+    clang-tidy \
+    clang-tools \
     clang-tools-8 \
+    clangd \
     cmake \
     cmake-data \
     cowsay \
