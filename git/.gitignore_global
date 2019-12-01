@@ -1,7 +1,5 @@
 ehthumbs.db
 Thumbs.db
-*.pyc
-*.pyo
 *.autosave
 *.swp
 .~lock.*
@@ -105,12 +103,27 @@ xcuserdata/
 .project
 .classpath
 
-node_modules
+node_modules/
 
 cmake-build-*/
 
+# Python
+*.pyc
+*.pyo
 __pycache__/
 .ipynb_checkpoints/
 
 # Javascript
 .eslintrc.json
+
+# C/C++
+*.slo
+*.lo
+*.o
+*.obj
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+*.app
