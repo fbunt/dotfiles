@@ -75,7 +75,7 @@ Plug 'junegunn/seoul256.vim'
 Plug 'morhetz/gruvbox'
 Plug 'vim-scripts/mayansmoke'
 " Linting
-Plug 'nvie/vim-flake8'
+Plug 'nvie/vim-flake8', { 'for': 'python' }
 Plug 'w0rp/ale'
 " Language Plugins
 "" C/C++
@@ -85,8 +85,8 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 Plug 'rhysd/vim-clang-format'
 "" Python
-Plug 'ambv/black'
-Plug 'vim-python/python-syntax'
+Plug 'psf/black', { 'for': 'python' }
+Plug 'vim-python/python-syntax', { 'for': 'python' }
 "" Web
 Plug 'ap/vim-css-color'
 Plug 'elzr/vim-json'
@@ -95,7 +95,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
 "" Rust
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 "" Etc
 Plug 'chrisbra/csv.vim'
 Plug 'lervag/vimtex'
