@@ -521,7 +521,7 @@ let g:gutentags_ctags_exclude = [
 " ** vimade **
 " ============
 let g:vimade = {}
-let g:vimade.fadelevel = 0.5
+let g:vimade.fadelevel = 0.7
 let g:vimade.rowbufsize = 5
 
 
