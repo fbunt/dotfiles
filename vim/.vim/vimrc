@@ -43,6 +43,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'TaDaa/vimade'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
+Plug 'voldikss/vim-floaterm'
 " Relax mode
 Plug 'amix/vim-zenroom2', { 'on': 'Goyo'  }
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
