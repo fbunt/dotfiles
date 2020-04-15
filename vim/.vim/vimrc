@@ -529,3 +529,10 @@ let g:vimade.rowbufsize = 5
 " ** tagbar **
 " ============
 map <leader>tb :TagbarToggle<cr>
+
+
+" ** floaterm **
+" ==============
+map <leader>fn :FloatermNew<CR>
+nnoremap   <silent>   <F8>   :FloatermToggle<CR>
+tnoremap   <silent>   <F8>   <C-\><C-n>:FloatermToggle<CR>
