@@ -134,6 +134,7 @@ fi
 alias vi="nvim"
 alias bashrc="vi ~/.bashrc"
 alias vimrc="vi ~/.vim/vimrc"
+alias spotify="flatpak run com.spotify.Client"
 
 # Open files easily
 if hash xdg-open 2> /dev/null; then
