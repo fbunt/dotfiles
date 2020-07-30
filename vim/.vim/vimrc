@@ -86,7 +86,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 Plug 'rhysd/vim-clang-format'
 "" Python
-Plug 'psf/black', { 'for': 'python' }
+Plug 'psf/black', { 'branch': 'stable', 'for': 'python' }
 Plug 'vim-python/python-syntax', { 'for': 'python' }
 "" Web
 Plug 'ap/vim-css-color'
