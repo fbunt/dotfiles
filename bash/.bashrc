@@ -132,6 +132,8 @@ else
 fi
 
 alias vi="nvim"
+# system vi
+alias svi="/usr/bin/vi"
 alias bashrc="vi ~/.bashrc"
 alias vimrc="vi ~/.vim/vimrc"
 alias spotify="flatpak run com.spotify.Client"
