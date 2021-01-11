@@ -2,9 +2,8 @@
 
 echo "Adding RPMFusion"
 # Nvidia drivers and dependencies for buiding everything
-dnf install -y \
-    https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-29.noarch.rpm \
-    https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-29.noarch.rpm \
+dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+    https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 echo "Updating index"
 dnf check-update -y
