@@ -537,3 +537,7 @@ map <leader>tb :TagbarToggle<cr>
 map <leader>fn :FloatermNew<CR>
 nnoremap   <silent>   <F8>   :FloatermToggle<CR>
 tnoremap   <silent>   <F8>   <C-\><C-n>:FloatermToggle<CR>
+
+" ** vimtex **
+" ============
+let g:tex_flavor = 'latex'
