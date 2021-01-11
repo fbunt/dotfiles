@@ -18,6 +18,7 @@ echo "Installing programs and dependencies"
 # Programs and libs
 dnf install -y \
     ImageMagick \
+    ImageMagick-devel \
     ShellCheck \
     arandr \
     asciidoc \
@@ -28,8 +29,11 @@ dnf install -y \
     dmenu \
     fd-find \
     feh \
+    ffmpeg \
+    ffmpeg-devel \
     gcc \
     git \
+    gparted \
     i3lock \
     i3status \
     java-11-openjdk \
@@ -78,6 +82,7 @@ dnf install -y \
     pango-devel \
     pcre-devel \
     pulseaudio-libs-devel \
+    qgis \
     startup-notification-devel \
     wireless-tools-devel \
     xcb-proto \
