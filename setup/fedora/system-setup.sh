@@ -46,6 +46,7 @@ dnf install -y \
     numlockx \
     perl-Env \
     perl-Time-HiRes \
+    pigz \
     ripgrep \
     rofi \
     snapd \
