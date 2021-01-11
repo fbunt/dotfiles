@@ -90,6 +90,6 @@ dnf install -y \
     xcb-util-xrm-devel \
     yajl-devel
 
-player_ver=2.0.1
-wget -P /tmp/ https://github.com/acrisci/playerctl/releases/download/v${player_ver}/playerctl-${player_ver}_x86_64.rpm
-dnf install -y /tmp/playerctl-${player_ver}_x86_64.rpm
+echo "Installing gitkraken"
+wget -P /tmp/ https://release.gitkraken.com/linux/gitkraken-amd64.rpm
+dnf install -y /tmp/gitkraken-amd64.rpm
