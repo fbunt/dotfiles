@@ -17,14 +17,12 @@ declare -a repos=(
     https://github.com/stark/siji.git
     https://github.com/tryone144/compton.git
     https://github.com/wknapik/lastcwd.git
-    https://www.github.com/Airblader/i3.git
     https://github.com/Airblader/i3blocks-gaps.git
 )
 
 for r in "${repos[@]}"; do
     git clone "$r"
 done
-mv i3 i3-gaps
 
 poly_ver=3.3.0
 wget https://github.com/jaagr/polybar/releases/download/${poly_ver}/polybar-${poly_ver}.tar
