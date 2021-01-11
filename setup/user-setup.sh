@@ -24,10 +24,6 @@ for r in "${repos[@]}"; do
     git clone "$r"
 done
 
-poly_ver=3.3.0
-wget https://github.com/jaagr/polybar/releases/download/${poly_ver}/polybar-${poly_ver}.tar
-tar -xvf polybar-${poly_ver}.tar
-
 echo "Installing i3blocks scripts"
 git clone https://github.com/vivien/i3blocks-contrib "$XDG_CONFIG_HOME/i3blocks"
 
