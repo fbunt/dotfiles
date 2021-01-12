@@ -31,6 +31,7 @@ dnf install -y \
     feh \
     ffmpeg \
     ffmpeg-devel \
+    flatpak \
     gcc \
     git \
     gparted \
