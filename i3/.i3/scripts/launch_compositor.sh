@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-killall -p compton
+killall picom
 
-if [ -x "$(which compton)" ]; then
-    compton -b --config ~/.config/compton/compton.conf &
+if [ -x "$(which picom)" ]; then
+    picom -b --experimental-backends &
 else
-    >&2 echo "Could not find compton"
+    >&2 echo "Could not find picom"
 fi
