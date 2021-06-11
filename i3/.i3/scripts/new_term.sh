@@ -5,9 +5,12 @@
 term=
 flag=
 # Set defaults
-for term in konsole gnome-terminal; do
-    term="$term"
-done
+if [ -x "$(command -v gnome-terminal)" ]; then
+    term="gnome-terminal"
+fi
+if [ -x "$(command -v konsole)" ]; then
+    term="konsole"
+fi
 case "$term" in
     konsole )
         flag="--workdir" ;;
@@ -17,9 +20,14 @@ esac
 args=
 cwd=
 # Use alacritty if it is present
+if [ -f "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
+fi
 if [ -x "$(command -v alacritty)" ]; then
     term=alacritty
     flag="--working-directory"
+else
+    >&2 echo "Could not find alacritty"
 fi
 if [ -x "$(command -v lastcwd)" ]; then
     cwd="$(lastcwd)"
