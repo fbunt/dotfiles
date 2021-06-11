@@ -15,9 +15,7 @@ declare -a repos=(
     https://github.com/jwilm/alacritty.git
     https://github.com/rupa/z.git
     https://github.com/stark/siji.git
-    https://github.com/tryone144/compton.git
     https://github.com/wknapik/lastcwd.git
-    https://github.com/Airblader/i3blocks-gaps.git
 )
 
 for r in "${repos[@]}"; do

@@ -48,6 +48,7 @@ apt install -y \
     openssh-server \
     openjdk-11-jdk \
     parallel \
+    picom \
     pkg-config \
     playerctl \
     ripgrep \
