@@ -164,6 +164,11 @@ function path() {
     IFS=$old
 }
 
+# sudo but with user PATH added to super user PATH
+function psudo() {
+    sudo env PATH="$PATH" "$@";
+}
+
 # Copied from https://github.com/glesica/bash-config
 # Append a directory to the PATH if it exists.
 function append_to_path() {
