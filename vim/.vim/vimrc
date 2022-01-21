@@ -294,7 +294,7 @@ fun! CleanExtraSpaces()
 endfun
 
 if has("autocmd")
-    autocmd BufWritePre *.txt,*.js,*.py,*.sh,*.rs,*.c,*.cpp :call CleanExtraSpaces()
+    autocmd BufWritePre *.txt,*.js,*.py,*.pyx,*.pxd,*.sh,*.rs,*.c,*.cpp :call CleanExtraSpaces()
 endif
 
 " Auto complete tags
