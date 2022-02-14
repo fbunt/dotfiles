@@ -186,6 +186,7 @@ set stal=2
 set hlsearch
 " Search for pattern as it is typed
 set incsearch
+set nowrapscan
 
 " Use the the_silver_searcher if possible (much faster than Ack)
 if executable('ag')
