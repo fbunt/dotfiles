@@ -100,6 +100,8 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 "" Etc
 Plug 'chrisbra/csv.vim'
 Plug 'lervag/vimtex'
+Plug 'hashivim/vim-terraform'
+Plug 'preservim/vim-markdown'
 
 call plug#end()
 
@@ -477,7 +479,9 @@ let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
   \ 'cpp': ['clangd'],
   \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+  \ 'terraform': ['terraform-ls', 'serve'],
   \ }
+
 
 
 " ** supertab **
@@ -541,3 +545,8 @@ tnoremap   <silent>   <F8>   <C-\><C-n>:FloatermToggle<CR>
 " ** vimtex **
 " ============
 let g:tex_flavor = 'latex'
+
+
+" ** vim-markdown **
+" ==================
+let g:vim_markdown_folding_disabled = 1
