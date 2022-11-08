@@ -29,7 +29,6 @@ font pango:monospace 8
 
 # External Programs Needed:
 # * rofi
-# * compton (https://github.com/tryone144/compton)
 # * feh
 # * polybar
 # * i3lock
@@ -227,6 +226,8 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [class="yakuake"] floating enable
 for_window [class="systemsettings"] floating enable
+for_window [class="Yad"] floating enable
+for_window [title="^zoom$" class="[zoom]*"] floating enable
 
 # Apps
 for_window [title="Microsoft Teams Notification"] floating enable, border none
