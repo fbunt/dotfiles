@@ -75,6 +75,7 @@ Plug 'fbunt/peaksea'
 Plug 'junegunn/seoul256.vim'
 Plug 'morhetz/gruvbox'
 Plug 'vim-scripts/mayansmoke'
+Plug 'guns/xterm-color-table.vim'
 " Linting
 Plug 'nvie/vim-flake8', { 'for': 'python' }
 Plug 'w0rp/ale'
@@ -102,6 +103,7 @@ Plug 'chrisbra/csv.vim'
 Plug 'lervag/vimtex'
 Plug 'hashivim/vim-terraform'
 Plug 'preservim/vim-markdown'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
@@ -186,7 +188,6 @@ set stal=2
 set hlsearch
 " Search for pattern as it is typed
 set incsearch
-set nowrapscan
 
 " Use the the_silver_searcher if possible (much faster than Ack)
 if executable('ag')
@@ -204,7 +205,7 @@ if !has('nvim')
     endif
 endif
 
-set termguicolors
+" set termguicolors
 syntax enable
 set background=dark
 colorscheme peaksea
@@ -343,7 +344,7 @@ au FileType python set cindent
 au FileType python syn keyword pythonDecorator True None False self
 
 " Set line length indicator
-au FileType c,cpp,css,java,javascript,python,rust,sh,tex,vim,zsh set colorcolumn=80
+au FileType c,cpp,css,java,javascript,markdown,python,rust,sh,tex,vim,zsh set colorcolumn=80
 au FileType html set colorcolumn=120
 
 
@@ -472,6 +473,8 @@ let g:deoplete#sources#jedi#show_docstring = 1
 " ===========
 let g:black_linelength = 79
 let g:black_virtualenv="~/.vim/vim_black"
+let g:ale_fixers = {}
+let g:ale_fixers.python = ['black']
 
 
 " ** LanguageClient **
