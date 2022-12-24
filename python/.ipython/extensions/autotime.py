@@ -5,7 +5,7 @@ import sys
 
 START_STOP_FMT = "START: {start}  >>>  STOP: {stop}"
 WALL_FMT = "WALL: {wall}  ({delta})"
-OUT_FMT = """+{top_div}+
+OUT_FMT = """\n+{top_div}+
 |{start_stop}|
 |{wall}|
 +{bot_div}+"""
