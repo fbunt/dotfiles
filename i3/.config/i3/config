@@ -210,7 +210,7 @@ bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 # ---------------
 # Kill KDE wallpaper since it covers everything after X startup
 exec --no-startup-id wmctrl -c Plasma
-for_window [title="Desktop — Plasma"] kill, floating enable, border none
+for_window [title="Desktop .* — Plasma"] kill, floating enable, border none
 for_window [class="plasmashell"] floating enable
 for_window [class="Plasma"] floating enable, border none
 for_window [title="plasma-desktop"] floating enable, border none
