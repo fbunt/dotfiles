@@ -78,7 +78,7 @@ Plug 'vim-scripts/mayansmoke'
 Plug 'guns/xterm-color-table.vim'
 " Linting
 Plug 'nvie/vim-flake8', { 'for': 'python' }
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 " Language Plugins
 "" C/C++
 Plug 'autozimu/LanguageClient-neovim', {
