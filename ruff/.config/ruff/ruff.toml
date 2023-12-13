@@ -23,8 +23,27 @@ exclude = [
     "venv",
 ]
 
-# Same as Black.
 line-length = 79
+select = [
+    "E",      # Pycodestyle
+    "W",      # Pycodestyle
+    "N",      # pep8-naming
+    "B",      # flake8-bugbear
+    "A",      # flake8-builtins
+    "ISC",    # flake8-implicit-str-concat
+    "T20",    # flake8-print
+    "F",      # Pyflakes
+    "I",      # isort
+    "NPY",    # numpy rules
+    "PD",     # pandas-vet
+    # "PL",     # pylint
+    "ASYNC",  # flake8-async
+    "SLOT",   # flake8-slots
+    "SIM",    # flake8-simplify
+    "Q",      # flake8-quotes
+    "C4",     # flake8-comprehensions
+    "PERF",   # perflint
+]
 
 [lint]
 ignore = [
