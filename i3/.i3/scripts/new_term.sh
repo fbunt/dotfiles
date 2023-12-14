@@ -29,11 +29,16 @@ if [ -x "$(command -v alacritty)" ]; then
 else
     >&2 echo "Could not find alacritty"
 fi
+if [ -d "$HOME/bin" ]; then
+    PATH="$PATH:$HOME/bin"
+fi
 if [ -x "$(command -v lastcwd)" ]; then
     cwd="$(lastcwd)"
     if [ -n "$cwd" ]; then
         # Only set args if cwd could be determined
         args="$flag $cwd"
     fi
+else
+    >&2 echo "Could not find lastcwd"
 fi
 $term $args &
