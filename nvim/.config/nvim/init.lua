@@ -1,3 +1,4 @@
+--# selene: allow(mixed_table)
 vim.g.mapleader = ","
 vim.g.maploacalleader = ","
 vim.g.python3_host_prog = string.gsub(vim.fn.system("which python"), "%s+", "")
@@ -49,7 +50,14 @@ require("lazy").setup({
     { "terryma/vim-expand-region", lazy = false },
     { "voldikss/vim-floaterm", lazy = false },
     -- Snippets and Completion
-    { "ervandew/supertab", lazy = false },
+    {
+        "ervandew/supertab",
+        lazy = false,
+        init = function()
+            vim.g.SuperTabDefaultCompletionType = "<C-n>"
+            vim.g.SuperTabClosePreviewOnPopupClose = 1
+        end,
+    },
     -- tpope
     { "tpope/vim-abolish", lazy = false },
     { "tpope/vim-commentary", lazy = false },
@@ -58,31 +66,178 @@ require("lazy").setup({
     { "tpope/vim-unimpaired", lazy = false },
     -- Git
     {
-        "airblade/vim-gitgutter",
-        lazy = false,
-        init = function()
-            vim.g.gitgutter_enabled = 1
-            vim.keymap.set(
-                "n",
-                "<leader>d",
-                ":GitGutterToggle<cr>",
-                { silent = true, noremap = true }
+        "lewis6991/gitsigns.nvim",
+        config = function()
+            require("gitsigns").setup({
+                signs = {
+                    add = { text = "+" }, -- default = '│'
+                    change = { text = "~" }, -- default = '│'
+                    delete = { text = "_" }, -- default = '_'
+                    topdelete = { text = "‾" }, -- default = '‾'
+                    changedelete = { text = "~" }, -- default = '~'
+                    untracked = { text = "┆" }, -- default = '┆'
+                },
+                on_attach = function(bufnr)
+                    local gs = package.loaded.gitsigns
+
+                    local function map(mode, l, r, opts)
+                        opts = opts or {}
+                        opts.buffer = bufnr
+                        vim.keymap.set(mode, l, r, opts)
+                    end
+
+                    -- Navigation
+                    map("n", "]c", function()
+                        if vim.wo.diff then
+                            return "]c"
+                        end
+                        vim.schedule(function()
+                            gs.next_hunk()
+                        end)
+                        return "<Ignore>"
+                    end, { expr = true })
+                    map("n", "[c", function()
+                        if vim.wo.diff then
+                            return "[c"
+                        end
+                        vim.schedule(function()
+                            gs.prev_hunk()
+                        end)
+                        return "<Ignore>"
+                    end, { expr = true })
+                end,
+            })
+        end,
+    },
+    { "tpope/vim-fugitive", lazy = false },
+    -- Colors
+    { "fbunt/peaksea", priority = 100000 },
+    { "altercation/vim-colors-solarized", lazy = false },
+    { "junegunn/seoul256.vim", lazy = false },
+    { "morhetz/gruvbox" },
+    { "vim-scripts/mayansmoke" },
+    { "guns/xterm-color-table.vim", lazy = false },
+    { "fynnfluegge/monet.nvim", name = "monet" },
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000,
+        config = function()
+            require("catppuccin").setup({
+                flavour = "mocha", -- latte, frappe, macchiato, mocha
+                background = {
+                    light = "latte",
+                    dark = "mocha",
+                },
+                dim_inactive = {
+                    enabled = true, -- dims the background color of inactive window
+                    shade = "dark",
+                    percentage = 0.15, -- percentage of the shade to apply to the inactive window
+                },
+                integrations = {
+                    cmp = true,
+                    gitsigns = true,
+                    nvimtree = true,
+                    treesitter = true,
+                    native_lsp = {
+                        enabled = true,
+                        underlines = {
+                            errors = { "undercurl" },
+                            hints = { "undercurl" },
+                            warnings = { "undercurl" },
+                            information = { "undercurl" },
+                        },
+                    },
+                },
+                custom_highlights = function(colors)
+                    return {
+                        LineNr = { fg = colors.overlay1 },
+                        WinSeparator = { fg = colors.sapphire },
+                    }
+                end,
+            })
+            vim.cmd.colorscheme("catppuccin")
+        end,
+    },
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = { signs = false },
+    },
+    "norcalli/nvim-colorizer.lua",
+    -- Language Plugins
+    "neovim/nvim-lspconfig",
+    {
+        "mfussenegger/nvim-lint",
+        config = function()
+            require("lint").linters_by_ft = {
+                lua = { "selene" },
+            }
+            vim.api.nvim_create_autocmd(
+                { "BufEnter", "BufWritePost", "InsertLeave" },
+                {
+                    callback = function()
+                        require("lint").try_lint()
+                    end,
+                }
             )
         end,
     },
-
-    { "tpope/vim-fugitive", lazy = false },
-    -- Colors
-    { "fbunt/peaksea", lazy = false, priority = 100000 },
-    { "altercation/vim-colors-solarized", lazy = false },
-    { "junegunn/seoul256.vim", lazy = false },
-    { "morhetz/gruvbox", lazy = false },
-    { "vim-scripts/mayansmoke", lazy = false },
-    { "guns/xterm-color-table.vim", lazy = false },
-    -- Language Plugins
-    "neovim/nvim-lspconfig",
-    "mfussenegger/nvim-lint",
-    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        config = function()
+            require("nvim-treesitter.configs").setup({
+                -- A list of parser names, or "all". These will be installed immediately.
+                ensure_installed = {
+                    "bash",
+                    "c",
+                    "cpp",
+                    "html",
+                    "java",
+                    "javascript",
+                    "json",
+                    "lua",
+                    "python",
+                    "rst",
+                    "rust",
+                    "terraform",
+                    "vim",
+                    "vimdoc",
+                },
+                -- Install parsers synchronously (only applied to `ensure_installed`)
+                sync_install = true,
+                -- Automatically install missing parsers when entering buffer
+                -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+                auto_install = true,
+                ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
+                -- parser_install_dir = "/some/path/to/store/parsers",
+                -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
+                highlight = {
+                    enable = true,
+                    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
+                    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
+                    -- the name of the parser)
+                    -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
+                    disable = function(lang, buf)
+                        local max_filesize = 100 * 1024 * 1024 -- 100 MB
+                        local ok, stats = pcall(
+                            vim.loop.fs_stat,
+                            vim.api.nvim_buf_get_name(buf)
+                        )
+                        if ok and stats and stats.size > max_filesize then
+                            return true
+                        end
+                    end,
+                    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+                    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+                    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+                    -- Instead of true it can also be a list of languages
+                    additional_vim_regex_highlighting = false,
+                },
+            })
+        end,
+    },
     -- C/C++
     { "rhysd/vim-clang-format", ft = "cpp" },
     {
@@ -105,6 +260,13 @@ require("lazy").setup({
                 -- Use lsp if no formatter was defined for this filetype
                 lsp_as_default_formatter = true,
             })
+
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = { "c", "cpp", "json", "lua", "python", "rust" },
+                callback = function()
+                    vim.keymap.set("n", "<Leader>bb", ":GuardFmt<cr>")
+                end,
+            })
         end,
     },
     -- Python
@@ -116,25 +278,71 @@ require("lazy").setup({
         end,
     },
     -- Web
-    { "ap/vim-css-color", lazy = false },
     { "elzr/vim-json", ft = "json" },
     { "hail2u/vim-css3-syntax", ft = { "css", "html" } },
     { "leafgarland/typescript-vim", ft = "typescript" },
     { "mattn/emmet-vim", ft = "html" },
     { "pangloss/vim-javascript", ft = "javascript" },
     -- Rust
-    { "simrat39/rust-tools.nvim", ft = "rust" },
+    {
+        "simrat39/rust-tools.nvim",
+        ft = "rust",
+        config = function()
+            local rt = require("rust-tools")
+            rt.setup({
+                server = {
+                    on_attach = function(_, bufnr)
+                        -- Hover actions
+                        vim.keymap.set(
+                            "n",
+                            "<C-space>",
+                            rt.hover_actions.hover_actions,
+                            { buffer = bufnr }
+                        )
+                        -- Code action groups
+                        vim.keymap.set(
+                            "n",
+                            "<Leader>a",
+                            rt.code_action_group.code_action_group,
+                            { buffer = bufnr }
+                        )
+                    end,
+                },
+            })
+        end,
+    },
     -- Etc
     { "chrisbra/csv.vim", ft = "csv" },
     { "lervag/vimtex", ft = "tex" },
-    { "hashivim/vim-terraform", ft = "terraform" },
-    { "preservim/vim-markdown", ft = "markdown" },
+    {
+        "hashivim/vim-terraform",
+        ft = "terraform",
+        config = function()
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = "terraform",
+                callback = function()
+                    vim.keymap.set("n", "<Leader>bb", ":TerraformFmt<cr>")
+                end,
+            })
+        end,
+    },
+    {
+        "preservim/vim-markdown",
+        ft = "markdown",
+        init = function()
+            vim.g.vim_markdown_folding_disabled = 1
+        end,
+    },
     {
         "nvim-treesitter/nvim-treesitter",
         dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
         build = ":TSUpdate",
     },
-}, {})
+}, {
+    ui = {
+        border = "rounded",
+    },
+})
 
 vim.o.swapfile = true
 vim.o.history = 100
@@ -182,7 +390,7 @@ vim.o.hlsearch = true
 vim.o.incsearch = true
 
 vim.o.background = "dark"
-vim.cmd.colorscheme("peaksea")
+-- vim.cmd.colorscheme("peaksea")
 
 vim.o.writebackup = false
 -- Turn persistent undo on
@@ -203,6 +411,7 @@ vim.api.nvim_create_autocmd("FileType", {
         "css",
         "java",
         "javascript",
+        "lua",
         "markdown",
         "python",
         "rust",
@@ -310,9 +519,9 @@ lspconfig.ruff_lsp.setup({
         -- Mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
-        vim.keymap.set("n", "<Leader>bb", function()
-            vim.lsp.buf.format({ async = true })
-        end, bufopts)
+        -- vim.keymap.set("n", "<Leader>bb", function()
+        --     vim.lsp.buf.format({ async = true })
+        -- end, bufopts)
     end,
     init_options = {
         settings = {
@@ -321,86 +530,6 @@ lspconfig.ruff_lsp.setup({
         },
     },
 })
-require("lint").linters_by_ft = {
-    lua = { "selene" },
-}
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-    callback = function()
-        require("lint").try_lint()
-    end,
-})
 
-local rt = require("rust-tools")
-rt.setup({
-    server = {
-        on_attach = function(_, bufnr)
-            -- Hover actions
-            vim.keymap.set(
-                "n",
-                "<C-space>",
-                rt.hover_actions.hover_actions,
-                { buffer = bufnr }
-            )
-            -- Code action groups
-            vim.keymap.set(
-                "n",
-                "<Leader>a",
-                rt.code_action_group.code_action_group,
-                { buffer = bufnr }
-            )
-        end,
-    },
-})
-
-require("nvim-treesitter.configs").setup({
-    -- A list of parser names, or "all" (the five listed parsers should always be installed)
-    ensure_installed = {
-        "bash",
-        "c",
-        "cpp",
-        "java",
-        "javascript",
-        "json",
-        "lua",
-        "python",
-        "rust",
-        "vim",
-        "vimdoc",
-    },
-    -- Install parsers synchronously (only applied to `ensure_installed`)
-    sync_install = true,
-
-    -- Automatically install missing parsers when entering buffer
-    -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-    auto_install = true,
-
-    ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-    -- parser_install_dir = "/some/path/to/store/parsers",
-    -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
-
-    highlight = {
-        enable = true,
-        -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
-        -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
-        -- the name of the parser)
-        -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
-        disable = function(lang, buf)
-            local max_filesize = 100 * 1024 * 1024 -- 100 MB
-            local ok, stats =
-                pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-            if ok and stats and stats.size > max_filesize then
-                return true
-            end
-        end,
-        -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-        -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-        -- Using this option may slow down your editor, and you may see some duplicate highlights.
-        -- Instead of true it can also be a list of languages
-        additional_vim_regex_highlighting = false,
-    },
-})
-vim.cmd([[
-    highlight GitGutterAdd    guifg=#009900 guibg=#202020 ctermfg=2 ctermbg=NONE
-    highlight GitGutterChange guifg=#bbbb00 guibg=#202020 ctermfg=3 ctermbg=NONE
-    highlight GitGutterDelete guifg=#ff2222 guibg=#202020 ctermfg=1 ctermbg=NONE
-]])
+-- This must be placed after loading plugins
+require("colorizer").setup()
