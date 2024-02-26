@@ -469,6 +469,20 @@ vim.keymap.set("n", "<C-k>", "<C-W>k")
 vim.keymap.set("n", "<C-h>", "<C-W>h")
 vim.keymap.set("n", "<C-l>", "<C-W>l")
 
+-- Jump to diagnostic messages
+vim.keymap.set(
+    "n",
+    "[d",
+    vim.diagnostic.goto_prev,
+    { noremap = true, silent = true }
+)
+vim.keymap.set(
+    "n",
+    "]d",
+    vim.diagnostic.goto_next,
+    { noremap = true, silent = true }
+)
+
 -- ==============
 -- -> Status Line
 -- ==============
