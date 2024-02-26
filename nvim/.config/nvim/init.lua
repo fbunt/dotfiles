@@ -185,6 +185,7 @@ require("lazy").setup({
     },
     {
         "nvim-treesitter/nvim-treesitter",
+        dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
         build = ":TSUpdate",
         config = function()
             require("nvim-treesitter.configs").setup({
@@ -272,13 +273,6 @@ require("lazy").setup({
         end,
     },
     -- Python
-    {
-        "vim-python/python-syntax",
-        ft = { "python" },
-        init = function()
-            vim.g.python_highlight_all = 1
-        end,
-    },
     -- Web
     { "elzr/vim-json", ft = "json" },
     { "hail2u/vim-css3-syntax", ft = { "css", "html" } },
@@ -334,11 +328,6 @@ require("lazy").setup({
         init = function()
             vim.g.vim_markdown_folding_disabled = 1
         end,
-    },
-    {
-        "nvim-treesitter/nvim-treesitter",
-        dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
-        build = ":TSUpdate",
     },
 }, {
     ui = {
