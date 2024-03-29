@@ -426,6 +426,16 @@ vim.cmd(
     [[autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
 )
 
+-- Fix gq[q] behavior
+-- Use internal formatting for bindings like gq.
+-- ref: https://vi.stackexchange.com/questions/39200/wrapping-comment-in-visual-mode-not-working-with-gq
+-- ref: https://github.com/neovim/neovim/pull/19677
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    vim.bo[args.buf].formatexpr = nil
+  end,
+})
+
 -- ======================
 --  = M A P P I N G S =
 -- ======================
