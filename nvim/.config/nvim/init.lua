@@ -366,9 +366,8 @@ vim.o.magic = true
 vim.o.showmatch = true
 vim.o.matchtime = 2
 -- No sounds or flashes on error
-vim.o.noerrorbells = true
-vim.o.novisualbell = true
-vim.o.t_vb = ""
+vim.o.errorbells = false
+vim.o.visualbell = false
 
 -- Time in ms before a key sequence is considered complete
 vim.o.timeoutlen = 500
