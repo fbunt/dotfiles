@@ -525,14 +525,14 @@ vim.diagnostic.config({
 })
 
 local lspconfig = require("lspconfig")
-lspconfig.ruff_lsp.setup({
+lspconfig.ruff.setup({
     on_attach = function(_, bufnr)
         -- Enable completion triggered by <c-x><c-o>
         vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
         -- Mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
-        local bufopts = { noremap = true, silent = true, buffer = bufnr }
+        -- local bufopts = { noremap = true, silent = true, buffer = bufnr }
         -- vim.keymap.set("n", "<Leader>bb", function()
         --     vim.lsp.buf.format({ async = true })
         -- end, bufopts)
