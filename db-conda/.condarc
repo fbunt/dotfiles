@@ -1,0 +1,6 @@
+channels:
+  - conda-forge
+  - defaults
+channel_priority: strict
+pkgs_dirs:
+  - /var/home/fred/.cache/conda_pkgs
