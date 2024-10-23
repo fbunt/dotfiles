@@ -257,12 +257,11 @@ require("lazy").setup({
                 stdin = true,
             })
 
-            require("guard").setup({
-                -- the only options for the setup function
+            vim.g.guard_config = {
                 fmt_on_save = false,
                 -- Use lsp if no formatter was defined for this filetype
                 lsp_as_default_formatter = true,
-            })
+            }
 
             vim.api.nvim_create_autocmd("FileType", {
                 pattern = { "c", "cpp", "json", "lua", "python", "rust" },
@@ -429,10 +428,10 @@ vim.cmd(
 -- Use internal formatting for bindings like gq.
 -- ref: https://vi.stackexchange.com/questions/39200/wrapping-comment-in-visual-mode-not-working-with-gq
 -- ref: https://github.com/neovim/neovim/pull/19677
-vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(args)
-    vim.bo[args.buf].formatexpr = nil
-  end,
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+        vim.bo[args.buf].formatexpr = nil
+    end,
 })
 
 -- ======================
