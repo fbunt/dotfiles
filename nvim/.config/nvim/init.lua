@@ -58,6 +58,26 @@ require("lazy").setup({
             vim.g.SuperTabClosePreviewOnPopupClose = 1
         end,
     },
+    -- File and buffer nav
+    {
+        -- Find buffers
+        "leath-dub/snipe.nvim",
+        keys = {
+            {
+                '<leader>fb',
+                function()
+                    require("snipe").open_buffer_menu()
+                end,
+                desc = "Open Snipe buffer menu",
+            },
+        },
+        opts = {},
+    },
+    {
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.8",
+        dependencies = { "nvim-lua/plenary.nvim" },
+    },
     -- tpope
     { "tpope/vim-abolish", lazy = false },
     { "tpope/vim-commentary", lazy = false },
@@ -450,6 +470,11 @@ vim.keymap.set(
     [[<C-\><C-n>:FloatermToggle<CR>]],
     { silent = true }
 )
+
+-- telescope
+local tsb = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', tsb.find_files, {})
+vim.keymap.set('n', '<leader>fg', tsb.live_grep, {})
 
 -- Auto complete tags
 vim.keymap.set("i", "<lt>//", "</<C-x><C-o><Esc>==gi", { noremap = true })
