@@ -12,9 +12,6 @@ else
 fi
 unset __conda_setup
 
-if [ -f "${HOME}/anaconda3/etc/profile.d/mamba.sh" ]; then
-    . "${HOME}/anaconda3/etc/profile.d/mamba.sh"
-fi
 # <<< conda initialize <<<
 
 conda activate main
