@@ -231,7 +231,7 @@ require("lazy").setup({
                 sync_install = true,
                 -- Automatically install missing parsers when entering buffer
                 -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-                auto_install = true,
+                auto_install = false,
                 ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
                 -- parser_install_dir = "/some/path/to/store/parsers",
                 -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
@@ -549,6 +549,7 @@ vim.diagnostic.config({
 })
 
 local lspconfig = require("lspconfig")
+-- lspconfig.ruff_lsp.setup({
 lspconfig.ruff.setup({
     on_attach = function(_, bufnr)
         -- Enable completion triggered by <c-x><c-o>
@@ -556,7 +557,6 @@ lspconfig.ruff.setup({
 
         -- Mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
-        -- local bufopts = { noremap = true, silent = true, buffer = bufnr }
         -- vim.keymap.set("n", "<Leader>bb", function()
         --     vim.lsp.buf.format({ async = true })
         -- end, bufopts)
