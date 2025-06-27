@@ -286,7 +286,7 @@ require("lazy").setup({
             vim.api.nvim_create_autocmd("FileType", {
                 pattern = { "c", "cpp", "json", "lua", "python", "rust" },
                 callback = function()
-                    vim.keymap.set("n", "<Leader>bb", ":GuardFmt<cr>")
+                    vim.keymap.set("n", "<Leader>bb", ":Guard fmt<cr>")
                 end,
             })
         end,
