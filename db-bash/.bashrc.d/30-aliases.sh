@@ -33,3 +33,5 @@ fi
 
 alias py="python"
 alias ipy="ipython"
+
+alias db="distrobox"
