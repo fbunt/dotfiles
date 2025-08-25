@@ -24,6 +24,8 @@ exclude = [
 ]
 
 line-length = 79
+
+[lint]
 select = [
     "E",      # Pycodestyle
     "W",      # Pycodestyle
@@ -44,8 +46,6 @@ select = [
     "C4",     # flake8-comprehensions
     "PERF",   # perflint
 ]
-
-[lint]
 ignore = [
     # Whitespace before ':'. flake8 is wrong when inside slice expressions.
     "E203",
