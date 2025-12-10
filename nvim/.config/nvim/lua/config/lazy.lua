@@ -239,3 +239,25 @@ require("lazy").setup({
 local tsb = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", tsb.find_files, {})
 vim.keymap.set("n", "<leader>fg", tsb.live_grep, {})
+
+-- Formatting
+-- Disable the built-in formatter so StyLua can take over
+require("lspconfig").lua_ls.setup({
+    on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = false
+    end,
+})
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "c", "cpp", "json", "lua", "python", "rust" },
+    callback = function()
+            vim.keymap.set("n", "<Leader>bb", function()
+                local ft = vim.bo.filetype
+
+                if ft == "lua" then
+                    require("stylua-nvim").format_file()
+                else
+                    vim.lsp.buf.format({ async = false })
+                end
+            end, { buffer = true })
+    end,
+})
