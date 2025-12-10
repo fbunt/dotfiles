@@ -205,10 +205,6 @@ if vim.g.loaded_lightline then
     vim.o.showmode = false
 end
 
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-    pattern = { "*" },
-    command = [[%s/\s\+$//e]],
-})
 vim.diagnostic.config({
     virtual_text = {
         source = true,
@@ -241,6 +237,11 @@ vim.keymap.set("n", "<leader>ff", tsb.find_files, {})
 vim.keymap.set("n", "<leader>fg", tsb.live_grep, {})
 
 -- Formatting
+-- Remove whitespace at the end of lines
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+    pattern = { "*" },
+    command = [[%s/\s\+$//e]],
+})
 -- Disable the built-in formatter so StyLua can take over
 require("lspconfig").lua_ls.setup({
     on_attach = function(client, bufnr)
