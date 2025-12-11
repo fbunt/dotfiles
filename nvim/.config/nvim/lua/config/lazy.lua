@@ -231,6 +231,29 @@ require("lazy").setup({
     },
 })
 
+
+-- Setup Lua LS
+vim.lsp.config("lua_ls", {
+    cmd = { "lua-language-server" },
+    filetypes = { "lua" },
+    root_markers = {
+        ".luarc.json",
+        ".luarc.jsonc",
+        ".luacheckrc",
+        ".stylua.toml",
+        "stylua.toml",
+        ".git",
+    },
+    settings = {
+        Lua = {
+            -- Mark vim as valid global variable so linting doesn't go nuts in
+            -- nvim configs.
+            diagnostics = { globals = { "vim" } },
+        },
+    },
+})
+vim.lsp.enable('lua_ls')
+
 -- telescope
 local tsb = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", tsb.find_files, {})
@@ -243,9 +266,12 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     command = [[%s/\s\+$//e]],
 })
 -- Disable the built-in formatter so StyLua can take over
-require("lspconfig").lua_ls.setup({
-    on_attach = function(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = false
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client.name == "lua_ls" then
+            client.server_capabilities.documentFormattingProvider = false
+        end
     end,
 })
 vim.api.nvim_create_autocmd("FileType", {
