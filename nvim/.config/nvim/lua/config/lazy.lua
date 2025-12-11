@@ -277,14 +277,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "c", "cpp", "json", "lua", "python", "rust" },
     callback = function()
-            vim.keymap.set("n", "<Leader>bb", function()
-                local ft = vim.bo.filetype
+        vim.keymap.set("n", "<Leader>bb", function()
+            local ft = vim.bo.filetype
 
-                if ft == "lua" then
-                    require("stylua-nvim").format_file()
-                else
-                    vim.lsp.buf.format({ async = false })
-                end
-            end, { buffer = true })
+            if ft == "lua" then
+                require("stylua-nvim").format_file()
+            else
+                vim.lsp.buf.format({ async = false })
+            end
+        end, { buffer = true })
     end,
 })
