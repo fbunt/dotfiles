@@ -1,29 +1,15 @@
 --# selene: allow(mixed_table)
 return {
-    {
-        "williamboman/mason.nvim",
-        opts = {},
-        config = function()
-            require("mason").setup()
-        end,
-    },
-    -- Then load mason-lspconfig.nvim after mason.nvim
-    {
-        "williamboman/mason-lspconfig.nvim",
-        dependencies = {
-            "mason-org/mason.nvim",
-            "neovim/nvim-lspconfig",
+    "mason-org/mason-lspconfig.nvim",
+    opts = {
+        ensure_installed = {
+            "jedi_language_server",
+            "lua_ls",
+            "ruff",
         },
-        version = "1.*",
-        pin = true,
-        config = function()
-            require("mason-lspconfig").setup({
-                ensure_installed = {
-                    "jedi_language_server",
-                    "lua_ls",
-                    "ruff",
-                },
-            })
-        end,
+    },
+    dependencies = {
+        { "mason-org/mason.nvim", opts = {} },
+        "neovim/nvim-lspconfig",
     },
 }
