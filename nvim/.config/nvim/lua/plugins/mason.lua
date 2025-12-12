@@ -19,8 +19,8 @@ return {
         config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = {
-                    "lua_ls",
                     "jedi_language_server",
+                    "lua_ls",
                     "ruff",
                 },
             })
