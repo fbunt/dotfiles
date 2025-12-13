@@ -37,36 +37,37 @@ return {
             },
 
             appearance = {
-                -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd
-                -- Font' Adjusts spacing to ensure icons are aligned
+                -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+                -- Adjusts spacing to ensure icons are aligned
                 nerd_font_variant = "mono",
             },
 
-            -- (Default) Only show the documentation popup when manually triggered
             completion = {
-                documentation = { auto_show = true, auto_show_delay_ms = 500 },
-                -- Disable auto brackets
-                -- NOTE: some LSPs may add auto brackets themselves anyway
                 accept = { auto_brackets = { enabled = false } },
                 menu = {
-                    -- Don't automatically show the completion menu
                     auto_show = true,
-
-                    -- nvim-cmp style menu
                     draw = {
+                        components = {
+                            source_name_brackets = {
+                                text = function(ctx)
+                                    return "[" .. ctx.source_name .. "]"
+                                end,
+                                highlight = "BlinkCmpSource", -- Use the standard highlight group
+                            },
+                        },
                         columns = {
                             { "label", "label_description", gap = 1 },
-                            { "kind_icon", "kind" },
+                            { "kind_icon", "kind", gap = 1 },
+                            { "source_name_brackets" },
                         },
                     },
                 },
+                documentation = {
+                    auto_show = true,
+                    auto_show_delay_ms = 200,
+                },
                 list = {
                     selection = {
-                        -- When `true`, inserts the completion item
-                        -- automatically when selecting it You may want to bind
-                        -- a key to the `cancel` command (default <C-e>) when
-                        -- using this option, which will both undo the
-                        -- selection and hide the completion menu
                         auto_insert = false,
                     },
                 },
@@ -76,35 +77,63 @@ return {
             -- it elsewhere in your config, without redefining it, due to
             -- `opts_extend`
             sources = {
-                default = { "lsp", "path", "snippets", "buffer" },
+                default = {
+                    "lsp",
+                    "path",
+                    -- "snippets",
+                    "buffer",
+                },
                 providers = {
                     lsp = {
-                        name = "lsp",
+                        name = "LSP",
                         enabled = true,
                         module = "blink.cmp.sources.lsp",
                         min_keyword_length = 2,
                         -- the higher the number, the higher the priority
                         score_offset = 90,
+                        transform_items = function(_, items)
+                            local CompletionItemKind =
+                                require("blink.cmp.types").CompletionItemKind
+                            local kind_idx =
+                                require("blink.cmp.types").CompletionItemKind
+                            local map = {
+                                [kind_idx.Function] = true,
+                                [kind_idx.Method] = true,
+                                [kind_idx.Constructor] = true,
+                            }
+
+                            for _, item in ipairs(items) do
+                                -- Check if the item is a Function, Method, or Constructor
+                                if map[item.kind] then
+                                    -- Force the insertion text to be just the label (the name)
+                                    item.insertText = item.label
+                                    -- Tell Blink this is now plain text, not a snippet
+                                    item.insertTextFormat =
+                                        vim.lsp.protocol.InsertTextFormat.PlainText
+                                end
+                            end
+
+                            -- Drop snippets as well
+                            return vim.tbl_filter(function(item)
+                                return item.kind ~= CompletionItemKind.Snippet
+                            end, items)
+                        end,
                     },
                     path = {
+                        -- Need to start paths with relative './' or '../' to
+                        -- trigger this source
                         name = "Path",
                         module = "blink.cmp.sources.path",
-                        score_offset = 25,
-                        -- Note from original author (linkarzu):
-                        -- When typing a path, I would get snippets and text in
-                        -- the suggestions, I want those to show only if there
-                        -- are no path suggestions
-                        fallbacks = { "snippets", "buffer" },
-                        min_keyword_length = 2,
+                        score_offset = 30,
+                        fallbacks = {},
+                        min_keyword_length = 0,
                         opts = {
                             trailing_slash = false,
                             label_trailing_slash = true,
-                            get_cwd = function(context)
-                                return vim.fn.expand(
-                                    ("#%d:p:h"):format(context.bufnr)
-                                )
-                            end,
                             show_hidden_files_by_default = true,
+                            get_cwd = function(_)
+                                return vim.fn.getcwd()
+                            end,
                         },
                     },
                     buffer = {
