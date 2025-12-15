@@ -101,7 +101,9 @@ return {
                                 [kind_idx.Method] = true,
                                 [kind_idx.Constructor] = true,
                             }
-
+                            -- Transform the results for funcs, methods, ctors
+                            -- to prevent completion from dropping in the
+                            -- function's full signature as a snippet.
                             for _, item in ipairs(items) do
                                 -- Check if the item is a Function, Method, or Constructor
                                 if map[item.kind] then
