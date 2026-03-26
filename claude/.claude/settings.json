@@ -17,7 +17,7 @@
       "WebFetch"
     ]
   },
-  attribution: {
+  "attribution": {
     "commit": "",
     "pr": ""
   }
