@@ -4,5 +4,21 @@
     "type": "command",
     "command": "~/.claude/statusline.sh"
   },
-  "effortLevel": "medium"
+  "effortLevel": "high",
+  "permissions": {
+    "allow": [
+      "Bash",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "WebSearch",
+      "WebFetch"
+    ]
+  },
+  attribution: {
+    "commit": "",
+    "pr": ""
+  }
 }
