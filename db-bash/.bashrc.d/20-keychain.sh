@@ -1,1 +1,1 @@
-eval `keychain --eval --agents ssh lab_pc id_ed25519`
+[ -f "$HOME/.keychain/$HOSTNAME-sh" ] && . "$HOME/.keychain/$HOSTNAME-sh"

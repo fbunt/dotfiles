@@ -5,7 +5,4 @@ if [ -f ~/.bashrc ]; then
 fi
 . "$HOME/.cargo/env"
 
-eval `keychain -q --eval --agents ssh id_ed25519`
-eval `keychain -q --eval --agents ssh lab_pc`
-
-. "$HOME/.local/share/../bin/env"
+# eval $(keychain --eval --agents ssh <keys list>)
