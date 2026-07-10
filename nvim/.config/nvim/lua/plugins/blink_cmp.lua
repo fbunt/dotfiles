@@ -140,7 +140,6 @@ return {
                     },
                     buffer = {
                         name = "Buffer",
-                        enabled = true,
                         max_items = 3,
                         module = "blink.cmp.sources.buffer",
                         min_keyword_length = 2,
