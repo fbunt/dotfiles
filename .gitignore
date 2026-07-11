@@ -1,4 +1,8 @@
 i3/.config/i3blocks/
+python/.ipython/extensions/__pycache__/
+python/.ipython/profile_default/db/
+python/.ipython/profile_default/history.sqlite*
+python/.ipython/profile_default/startup/README
 vim/.vim/autoload/
 vim/.vim/black/
 vim/.vim/plugged/
